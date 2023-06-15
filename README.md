@@ -24,3 +24,5 @@ https://pexsi.readthedocs.io
 For installation instructions please (be patient for dependecies) and see
 
 https://pexsi.readthedocs.io/en/latest/install.html
+
+The current version is 2.1.
