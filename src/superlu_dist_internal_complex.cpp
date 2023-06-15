@@ -603,8 +603,8 @@ ComplexSuperLUData::Distribute	(  )
   // Distribute Pc*Pr*diag(R)*A*diag(C)*Pc' into L and U storage.  
   // NOTE: the row permutation Pc*Pr is applied internally in the
   // distribution routine. 
-  float dist_mem_use = pzdistribute(SamePattern_SameRowPerm, ptrData->A.nrow, 
-      &ptrData->A, &ptrData->ScalePermstruct, NULL, &ptrData->LUstruct, ptrData->grid);
+  // float dist_mem_use = pzdistribute(SamePattern_SameRowPerm, ptrData->A.nrow, 
+  //    &ptrData->A, &ptrData->ScalePermstruct, NULL, &ptrData->LUstruct, ptrData->grid);
 
 
   return ;

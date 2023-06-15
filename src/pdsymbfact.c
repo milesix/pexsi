@@ -1,9 +1,9 @@
 /// @file pdsymbfact.c
 /// @brief Symbolic factorization routine using real arithmetic.
 ///
-/// 
-/// @date 2013-07-20 modified by Lin Lin.
+/// @date 2012-11-01 Original version.
 /// @date 2016-02-23 Compatible with SuperLU_DIST_v4.3
+/// @date 2023-06-14 Compatible with SuperLU_DIST_v8.1
 #include <math.h>
 #include "superlu_ddefs.h"
 #define  PRNTlevel 0
@@ -614,7 +614,7 @@ pdsymbfact(superlu_dist_options_t *options, SuperMatrix *A,
 #if ( PRNTlevel >= 1 )
 				if( !iam ) fprintf(stderr,"Before symbfact_dist.");
 #endif
-				flinfo = symbfact_dist(nprocs_num, noDomains, A, perm_c, perm_r,
+				flinfo = symbfact_dist(options, nprocs_num, noDomains, A, perm_c, perm_r,
 															 sizes, fstVtxSep, &Pslu_freeable, 
 															 &(grid->comm), &symb_comm,
 															 &symb_mem_usage); 
@@ -652,7 +652,7 @@ pdsymbfact(superlu_dist_options_t *options, SuperMatrix *A,
 NOTE: the row permutation Pc*Pr is applied internally in the
 distribution routine. */
 			t = SuperLU_timer_();
-			dist_mem_use = pddistribute(Fact, n, A, ScalePermstruct,
+			dist_mem_use = pddistribute(options, n, A, ScalePermstruct,
 																	Glu_freeable, LUstruct, grid);
 			stat->utime[DIST] = SuperLU_timer_() - t;
 
@@ -669,7 +669,7 @@ distribution routine. */
 			for (j = 0; j < nnz_loc; ++j) colind[j] = perm_c[colind[j]];
 
 			t = SuperLU_timer_();
-			dist_mem_use = ddist_psymbtonum(Fact, n, A, ScalePermstruct,
+			dist_mem_use = ddist_psymbtonum(options, n, A, ScalePermstruct,
 																			&Pslu_freeable, LUstruct, grid);
 			if (dist_mem_use > 0)
 				ABORT ("Not enough memory available for dist_psymbtonum\n");

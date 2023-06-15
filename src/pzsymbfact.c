@@ -1,9 +1,9 @@
 /// @file pzsymbfact.c
 /// @brief Symbolic factorization routine using complex arithmetic.
 ///
-/// 
-/// @date 2012-11-01 modified by Lin Lin.
+/// @date 2012-11-01 Original version.
 /// @date 2016-02-24 Compatible with SuperLU_DIST_v4.3
+/// @date 2023-06-14 Compatible with SuperLU_DIST_v8.1
 #include <math.h>
 #include "superlu_zdefs.h"
 #define  PRNTlevel 0
@@ -633,7 +633,7 @@ pzsymbfact(superlu_dist_options_t *options, SuperMatrix *A,
 #if ( PRNTlevel >= 1 )
         if( !iam ) fprintf(stderr,"Before symbfact_dist.");
 #endif
-        flinfo = symbfact_dist(nprocs_num, noDomains, A, perm_c, perm_r,
+        flinfo = symbfact_dist(options, nprocs_num, noDomains, A, perm_c, perm_r,
             sizes, fstVtxSep, &Pslu_freeable, 
             &(grid->comm), &symb_comm,
             &symb_mem_usage); 
@@ -671,7 +671,7 @@ pzsymbfact(superlu_dist_options_t *options, SuperMatrix *A,
 NOTE: the row permutation Pc*Pr is applied internally in the
 distribution routine. */
       t = SuperLU_timer_();
-      dist_mem_use = pzdistribute(Fact, n, A, ScalePermstruct,
+      dist_mem_use = pzdistribute(options, n, A, ScalePermstruct,
           Glu_freeable, LUstruct, grid);
       stat->utime[DIST] = SuperLU_timer_() - t;
 
@@ -691,7 +691,7 @@ distribution routine. */
 #if ( PRNTlevel >= 2 )
       if( !iam ) fprintf(stderr,"before zdist_psymbtonum.");
 #endif
-      dist_mem_use = zdist_psymbtonum(Fact, n, A, ScalePermstruct,
+      dist_mem_use = zdist_psymbtonum(options, n, A, ScalePermstruct,
           &Pslu_freeable, LUstruct, grid);
 
 #if ( PRNTlevel >= 2 )
