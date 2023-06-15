@@ -437,6 +437,7 @@ inline void ParaReadDistSparseMatrix ( const char* filename, DistSparseMatrix<Re
   }
 
 
+
   /* define a struct that describes all our data */
   lens[0] = 1;
   lens[1] = 1;
@@ -739,11 +740,13 @@ inline void ParaReadDistSparseMatrix ( const char* filename, DistSparseMatrix<Co
 
   // FIXME Note that nnz uses the Int data type for consistency of writing / reading
   // Read header
+
   if( mpirank == 0 ){
     err = MPI_File_read_at(fin, 0,(char*)&pspmat.size, 1, MPI_INT, &status);
     err = MPI_File_read_at(fin, sizeof(Int),(char*)&pspmat.nnz, 1, MPI_INT, &status);
   }
 
+  
 
   /* define a struct that describes all our data */
   lens[0] = 1;

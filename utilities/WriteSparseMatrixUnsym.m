@@ -35,7 +35,7 @@ else
 	tic
 		fid = fopen(filename,'wb');
 		serialize(fid, N, {'int'} );
-		serialize(fid, nnzAlower, {'int'});
+		serialize(fid, nnzA, {'int'});
 		serialize(fid, colptr, {'IntNumVec'});
 		serialize(fid, rowind, {'IntNumVec'});
 		serialize(fid, nzval,  {'DblNumVec'});

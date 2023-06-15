@@ -325,9 +325,12 @@ int main(int argc, char **argv)
       DistSparseMatrix<Real> SMat;
       Real timeSta, timeEnd;
       GetTime( timeSta );
-      if(isCSC)
+      if(isCSC){
+        statusOFS << "Binary    " << Hfile << std::endl;
         ParaReadDistSparseMatrix( Hfile.c_str(), HMat, world_comm ); 
+      }
       else{
+        statusOFS << "Formatted " << Hfile << std::endl;
         ReadDistSparseMatrixFormatted( Hfile.c_str(), HMat, world_comm ); 
         ParaWriteDistSparseMatrix( "H.csc", HMat, world_comm ); 
       }
