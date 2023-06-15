@@ -1,0 +1,21 @@
+INSTALL_DIR=/home/linlin/Software/parmetis-4.0.3_install
+CC=mpicc
+CXX=mpicxx
+
+# clean
+rm -rf metis/build/*
+rm -rf build/*
+
+# Build METIS
+cd metis
+make config prefix=${INSTALL_DIR} 
+make -j 12
+make install
+cd ..
+echo "Finished building metis"
+
+# Build ParMETIS
+make config prefix=${INSTALL_DIR} cc=${CC} cxx=${CXX}
+make -j 12
+make install
+echo "Finished building parmetis"

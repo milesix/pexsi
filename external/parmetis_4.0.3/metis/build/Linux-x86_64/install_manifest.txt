@@ -1,0 +1,8 @@
+/home/linlin/Software/parmetis-4.0.3_install/include/metis.h
+/home/linlin/Software/parmetis-4.0.3_install/lib/libmetis.a
+/home/linlin/Software/parmetis-4.0.3_install/bin/gpmetis
+/home/linlin/Software/parmetis-4.0.3_install/bin/ndmetis
+/home/linlin/Software/parmetis-4.0.3_install/bin/mpmetis
+/home/linlin/Software/parmetis-4.0.3_install/bin/m2gmetis
+/home/linlin/Software/parmetis-4.0.3_install/bin/graphchk
+/home/linlin/Software/parmetis-4.0.3_install/bin/cmpfillin
