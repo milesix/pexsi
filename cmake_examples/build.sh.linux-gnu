@@ -5,7 +5,7 @@ HDIR=$HOME/Projects/pexsi
 BDIR=$HDIR/build
 rm -rf ${BDIR}
 BUILDDIR=BDIR
-cmake -H${HDIR} -B${BDIR} -DCMAKE_TOOLCHAIN_FILE=$HDIR/scripts_example/linux-gnu.cmake \
+cmake -H${HDIR} -B${BDIR} -DCMAKE_TOOLCHAIN_FILE=$HDIR/cmake_examples/linux-gnu.cmake \
   -DCMAKE_INSTALL_PREFIX="${PEXSI_INSTALL_DIR}"
 cd ${BDIR}
 make -j 48 VERBOSE=1
