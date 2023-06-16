@@ -328,6 +328,8 @@ int main(int argc, char **argv)
       if(isCSC){
         statusOFS << "Binary    " << Hfile << std::endl;
         ParaReadDistSparseMatrix( Hfile.c_str(), HMat, world_comm ); 
+        // statusOFS << "H nzval " << HMat.nzvalLocal << std::endl;
+
       }
       else{
         statusOFS << "Formatted " << Hfile << std::endl;
@@ -341,8 +343,11 @@ int main(int argc, char **argv)
         SMat.size = 0;  
       }
       else{
-        if(isCSC)
+        if(isCSC){
+          statusOFS << "Binary    " << Sfile << std::endl;
           ParaReadDistSparseMatrix( Sfile.c_str(), SMat, world_comm ); 
+          // statusOFS << "S nzval " << SMat.nzvalLocal << std::endl;
+        }
         else{
           ReadDistSparseMatrixFormatted( Sfile.c_str(), SMat, world_comm ); 
           ParaWriteDistSparseMatrix( "S.csc", SMat, world_comm ); 

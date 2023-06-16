@@ -230,7 +230,7 @@ int main(int argc, char **argv)
     if( isSIdentity == 0 ){
       if( isFormatted == 1 ){
         ReadDistSparseMatrixFormattedInterface(
-            Hfile,
+            Sfile,
             nrows,
             nnz,
             nnzLocal,
@@ -242,7 +242,7 @@ int main(int argc, char **argv)
       }
       else{
         ParaReadDistSparseMatrixInterface(
-            Hfile,
+            Sfile,
             nrows,
             nnz,
             nnzLocal,

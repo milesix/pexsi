@@ -2200,6 +2200,9 @@ void PPEXSIData::CalculateNegativeInertiaReal(
 
   CopyPattern( PatternMat_, AMat );
 
+  // statusOFS << "H = " << HMat.nzvalLocal << std::endl;
+  // statusOFS << "S = " << SMat.nzvalLocal << std::endl;
+
   Real timeShiftSta, timeShiftEnd;
 
   Int numShift = shiftVec.size();
@@ -2237,6 +2240,7 @@ void PPEXSIData::CalculateNegativeInertiaReal(
         }
       } // if (SMat.size != 0 )
 
+      // statusOFS << "AMat = " << AMat.nzvalLocal << std::endl;
 
       Real timeInertiaSta, timeInertiaEnd;
       // *********************************************************************
@@ -4642,7 +4646,9 @@ PPEXSIData::DFTDriver2 (
             verbosity );
       }
 
-      // FIXME In the future numSpin should be introduced.
+      // statusOFS << "inertia: " << std::endl;
+      // statusOFS << inertiaVec  << std::endl;
+
       for( Int l = 0; l < numShift; l++ ){
         inertiaVec[l] *= numSpin;
       }

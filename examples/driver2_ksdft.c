@@ -81,8 +81,6 @@ int main(int argc, char **argv)
 
   double        muPEXSI;
   double        numElectronPEXSI;
-  double        muMinInertia;
-  double        muMaxInertia;
   int           numTotalInertiaIter;
   int           numTotalPEXSIIter;
 
@@ -119,7 +117,7 @@ int main(int argc, char **argv)
 
   /* Below is the data used for the toy matrix */
 
-#if 1
+#if 0
   numElectronExact    = 12.0;
   nprow               = 1;
   npcol               = 1;
@@ -128,19 +126,16 @@ int main(int argc, char **argv)
   Sfile               = "";
   isFormatted         = 1;
   isSIdentity         = 1;
-
 #else
-#if 0
-  numElectronExact    = 7000.0;
-  nprow               = 8;
-  npcol               = 8;
-  Hfile               = "/project/projectdirs/m1027/PEXSI/LU_C_BN_C_1by1/H.csc";
-  Sfile               = "";
+#if 1
+  numElectronExact    = 592.0;
+  nprow               = 1;
+  npcol               = 1;
+//  Hfile               = "lap2dr.matrix";
+  Hfile               = "H.csr";
+  Sfile               = "S.csr";
   isFormatted         = 0;
-
-  isSIdentity         = 1;
-  Energy              = 1.0;
-  eta                 = 0.001;
+  isSIdentity         = 0;
 #else
   numElectronExact    = 70000.0;
   nprow               = 8;
@@ -236,7 +231,7 @@ int main(int argc, char **argv)
     if( isSIdentity == 0 ){
       if( isFormatted == 1 ){
         ReadDistSparseMatrixFormattedInterface(
-            Hfile,
+            Sfile,
             nrows,
             nnz,
             nnzLocal,
@@ -248,7 +243,7 @@ int main(int argc, char **argv)
       }
       else{
         ParaReadDistSparseMatrixInterface(
-            Hfile,
+            Sfile,
             nrows,
             nnz,
             nnzLocal,
@@ -271,9 +266,9 @@ int main(int argc, char **argv)
   /* Step 1. Initialize PEXSI */
 
   PPEXSISetDefaultOptions( &options );
-  options.muMin0 = -10.0;
-  options.muMax0 = 10.0;
-  options.mu0    = 0.0;
+  options.muMin0 = -0.4;
+  options.muMax0 = -0.1;
+  options.mu0    = -0.3;
   options.npSymbFact = 1;
   options.ordering = 0;
 #ifdef WITH_SYMPACK
@@ -281,10 +276,11 @@ int main(int argc, char **argv)
 #endif
   options.isInertiaCount = 1;
   options.verbosity = 1;
-  options.deltaE   = 20.0;
-  int method = 2;
+  options.deltaE   = 10.0;
+  int method = 3;
   options.numPole  = 40;
-  options.temperature  = 0.0095; // 3000K
+  options.temperature  = 0.00095; // 300K
+  options.symmetricStorage = 0;
 
 /*
   FILE * fp;
@@ -310,7 +306,6 @@ int main(int argc, char **argv)
   #ifdef WITH_SYMPACK
   options.solver = 1;
   #endif
-  options.symmetricStorage = 1;
 
   if( mpisize / ( nprow * npcol* options.numPole) > npoints ) 
   {
@@ -382,13 +377,13 @@ int main(int argc, char **argv)
 
   
   /* Step 2. PEXSI Solve */
-  muMinInertia = -10.0;
-  muMaxInertia =  10.0;
   int iter = 0;
-
-  while (iter < 20 ) {
+  while (iter < 2 ) {
     if( iter > 0 ){
       options.isSymbolicFactorize = 0;
+      if( mpirank == 0 ){
+        printf("\n Second iteration. Purely for the purpose of testing the code without symbolic factorization.\n");
+      }
     }
 
     PPEXSIDFTDriver2(
@@ -434,6 +429,7 @@ int main(int argc, char **argv)
 
       if( mpirank == 0 ){
         printf("Output from the main program\n");
+        printf("Number of electrons         = %15.5f\n", numElectronPEXSI);
         printf("Total energy (H*DM)         = %15.5f\n", totalEnergyH);
         printf("Total energy (S*EDM)        = %15.5f\n", totalEnergyS);
         printf("Total free energy           = %15.5f\n", totalFreeEnergy);
@@ -442,74 +438,6 @@ int main(int argc, char **argv)
     }
     iter++;
   }
-//  /* Step 3. Solve the problem once again without symbolic factorization */
-//  {
-//    if( mpirank == 0 ){
-//      printf("To test the correctness of the program, solve the problem \n");
-//      printf("again without symbolic factorization or inertia counting.\n");
-//    }
-//
-//    PPEXSILoadRealHSMatrix( 
-//        plan, 
-//        options,
-//        nrows,
-//        nnz,
-//        nnzLocal,
-//        numColLocal,
-//        colptrLocal,
-//        rowindLocal,
-//        HnzvalLocal,
-//        isSIdentity,
-//        SnzvalLocal,
-//        &info );
-//
-//    // No symbolic factorization
-//    options.muMin0 = muMinInertia;
-//    options.muMax0 = muMaxInertia;
-//    options.isInertiaCount = 0;
-//    options.isSymbolicFactorize = 0;
-//    // Reuse previous mu to start
-//    options.mu0 = muPEXSI;
-//
-//    PPEXSIDFTDriver2_Deprecate(
-//        plan,
-//        options,
-//        numElectronExact,
-//        &muPEXSI,                   
-//        &numElectronPEXSI,         
-//        &muMinInertia,              
-//        &muMaxInertia,             
-//        &numTotalInertiaIter,   
-//        &info );
-//
-//
-//    if( info != 0 ){
-//      if( mpirank == 0 ){
-//        printf("PEXSI solve routine gives info = %d. Exit now.\n", info );
-//      }
-//      MPI_Finalize();
-//      return info;
-//    }
-//
-//    if( isProcRead == 1 ){
-//      PPEXSIRetrieveRealDFTMatrix(
-//          plan,
-//          DMnzvalLocal,
-//          EDMnzvalLocal,
-//          FDMnzvalLocal,
-//          &totalEnergyH,
-//          &totalEnergyS,
-//          &totalFreeEnergy,
-//          &info );
-//
-//      if( mpirank == 0 ){
-//        printf("Output from the main program\n");
-//        printf("Total energy (H*DM)         = %15.5f\n", totalEnergyH);
-//        printf("Total energy (S*EDM)        = %15.5f\n", totalEnergyS);
-//        printf("Total free energy           = %15.5f\n", totalFreeEnergy);
-//      }
-//    }
-//  }
 
   /* Step 4. Clean up */
 
