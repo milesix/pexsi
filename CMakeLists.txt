@@ -49,7 +49,7 @@ project( PEXSI VERSION 2.0.0 LANGUAGES CXX C Fortran )
 option( PEXSI_ENABLE_PROFILE    "Enable Performance Profiling"        OFF )
 #option( PEXSI_ENABLE_SYMPACK    "Enable interface to symPACK"         OFF )
 option( PEXSI_ENABLE_OPENMP     "Enable OpenMP Bindings"              OFF )
-option( PEXSI_ENABLE_FORTRAN    "Enable Fortran Bindings"             ON  )
+option( PEXSI_ENABLE_FORTRAN    "Enable Fortran Bindings"             OFF  )
 
 
 # Append local cmake directory to find CMAKE Modules
@@ -83,6 +83,13 @@ add_subdirectory( src )
 if( PEXSI_ENABLE_FORTRAN )
   add_subdirectory( fortran )
 endif()
+
+# superlu_dist
+add_subdirectory(external/SuperLU_DIST_8.1.0 )
+
+#parmetis
+add_subdirectory(external/parmetis_4.0.3 )
+
 
 # examples
 add_subdirectory( examples )

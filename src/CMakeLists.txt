@@ -104,8 +104,11 @@ else()
 endif()
 
 # SuperLU Dist
-find_package( SuperLU_DIST REQUIRED )
-target_link_libraries( pexsi PUBLIC SuperLU::SuperLU_DIST )
+# find_package( SuperLU_DIST REQUIRED )
+target_link_libraries( pexsi PUBLIC superlu_dist)
+
+#parmetis
+target_link_libraries( pexsi PUBLIC parmetis)
 
 # BLAS/LAPACK
 find_package( LAPACK REQUIRED COMPONENTS lp64 )
@@ -144,6 +147,10 @@ target_include_directories( pexsi
     $<INSTALL_INTERFACE:include>
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
+  PRIVATE
+    "${PEXSI_DIR}/external/parmetis_4.0.3/include"
+    "${PEXSI_DIR}/external/SuperLU_DIST_8.1.0/SRC"
+    "${PEXSI_DIR}/external/parmetis_4.0.3/metis/include/"
 )
 
 

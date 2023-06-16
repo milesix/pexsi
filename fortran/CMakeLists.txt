@@ -44,6 +44,8 @@ macro( add_pexsi_f_example_exe _name )
 
   add_executable( ${_name} ${_name}.f90 )
   target_link_libraries(  ${_name} PRIVATE pexsi )
+  target_link_libraries(  ${_name} PRIVATE parmetis )
+  target_link_libraries(  ${_name} PRIVATE superlu_dist )
   set_target_properties( ${_name} PROPERTIES LINKER_LANGUAGE Fortran )
 
 endmacro()
