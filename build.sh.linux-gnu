@@ -1,5 +1,5 @@
 #!/bin/bash
-PEXSI_INSTALL_DIR=$HOME/Projects/pexsi_install
+PEXSI_INSTALL_DIR=$HOME/Projects/pexsi_install/v2.1
 
 HDIR=$HOME/Projects/pexsi
 BDIR=$HDIR/build

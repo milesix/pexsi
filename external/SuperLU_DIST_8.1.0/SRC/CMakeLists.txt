@@ -295,10 +295,12 @@ if (BUILD_SHARED_LIBS AND BUILD_STATIC_LIBS)
 endif()
 
 set(superlu_dist_libs ${MPI_C_LIBRARIES} ${MPI_CXX_LIBRARIES} ${BLAS_LIB} ${LAPACK_LIB}
-    ${PARMETIS_LIB} ${COMBBLAS_LIB} ${CUDA_LIB} ${HIP_LIB}) 
+     ${COMBBLAS_LIB} ${CUDA_LIB} ${HIP_LIB}) 
 if (NOT MSVC)
   list(APPEND superlu_dist_libs m)
 endif ()
+#parmetis
+link_libraries(${target} parmetis)
 
 foreach(target ${targets})
     target_link_libraries(${target} ${superlu_dist_libs})

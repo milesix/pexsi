@@ -92,13 +92,15 @@ int main(int argc, char **argv)
     // Input parameter
     // *********************************************************************
 
-    numElectronExact    = 12.0;
+    numElectronExact    = 592.0;
     nprow               = 1;
     npcol               = 1;
-    Hfile               = "lap2dr.matrix";
-    Sfile               = "";
-    isFormatted         = 1;
-    isSIdentity         = 1;
+//    Hfile               = "lap2dr.matrix";
+//    Sfile               = "";
+    Hfile               = "H.csr";
+    Sfile               = "S.csr";
+    isFormatted         = 0;
+    isSIdentity         = 0;
     colPerm             = "PARMETIS";
 
     /* Split the processors to read matrix */
@@ -172,9 +174,9 @@ int main(int argc, char **argv)
 
     PPEXSISetDefaultOptions( &options );
     
-    options.muMin0 = 0.0;
-    options.muMax0 = 0.5;
-    options.mu0    = +2.55555567e-01;
+    options.muMin0 = -0.4;
+    options.muMax0 = -0.2;
+    options.mu0    = -0.3;
     options.npSymbFact = 1;
     options.ordering = 0;
 #ifdef WITH_SYMPACK
@@ -182,14 +184,15 @@ int main(int argc, char **argv)
 #endif
     options.isInertiaCount = 1;
     options.verbosity = 1;
-    options.deltaE    = 20.0;
-    options.numPole   = 20;
+    options.deltaE    = 10.0;
+    options.numPole   = 40;
     options.temperature  = 0.00095; // 300K
     options.numElectronPEXSITolerance = 0.00001;
     options.isSymbolicFactorize = 1;
-    options.method = 2;
-    options.nPoints = 1;
+    options.method = 3;
+    options.nPoints = 2;
     options.spin = 2.0;
+    options.symmetricStorage = 0;
 
 
     pexsi.LoadRealMatrix(

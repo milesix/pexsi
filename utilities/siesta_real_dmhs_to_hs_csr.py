@@ -22,28 +22,48 @@ Example:
 
      python siesta_real_dmhs_to_hs_csr.py  -i C148_DMHS.nc
 
+NOTE: The unit of H is Rydberg from dmhs.
+
 Lin Lin
 Last revision: 06/14/2023
 """
 import numpy as np
 from netCDF4 import Dataset
 import struct
+from scipy.sparse import csr_matrix
+import scipy.linalg
 
-def convert_siesta_dmhs(inp_fname, out_H_fname, out_S_fname):
+def convert_siesta_dmhs(inp_fname, out_H_fname, out_S_fname, testing = False):
     print(f'Reading file {inp_fname}...')
     data = Dataset(inp_fname, "r", format="NETCDF4")
+    # matrix size
     norbs = data.dimensions['norbs'].size
+    # number of nonzeros
     nnzs  = data.dimensions['nnzs'].size
+    # row pointer, of size norbs+1
     rowptr = np.array(data['row_pointer']) #0-based
-    rowptr += 1 # change to 1-based
-    rowptr = np.append(rowptr, nnzs+1)
-    
-    colind = np.array(data['column']) # 1-based
+    rowptr = np.append(rowptr, nnzs)
+    # column indices in each row, size nnz
+    colind = np.array(data['column'])-1 # 0-based
+    # nonzero values in each row, size nnz
     H_val = np.array(data['h'])[0,0,:]
     S_val = np.array(data['overlap'])
+    
+    if testing:
+        print('Convert to scipy sparse matrix')
+        H = csr_matrix((H_val, colind, rowptr), shape=(norbs, norbs)).toarray() 
+        S = csr_matrix((S_val, colind, rowptr), shape=(norbs, norbs)).toarray() 
+        dm_val = np.array(data['dm_out'])[0,0,:]
+        dm = csr_matrix((dm_val, colind, rowptr), shape=(norbs, norbs)).toarray() 
+        print('Tr[dm*S] = ', np.trace(dm @ S))
+        ev = scipy.linalg.eigh(H,S,lower=True)[0] 
+        print('ev[0:10] = ', ev[0:10])
+
 
     print('Writing the matrix to file (binary csc format)...')
 
+    rowptr += 1 # change to 1-based
+    colind += 1 # change to 1-based
 
     with open(out_H_fname, 'wb') as f:
         f.write(struct.pack('i', norbs))
@@ -80,4 +100,5 @@ if __name__ == "__main__":
     out_H_fname = 'H.csr'
     out_S_fname = 'S.csr'
     
-    convert_siesta_dmhs(inp_fname, out_H_fname, out_S_fname)
+    convert_siesta_dmhs(inp_fname, out_H_fname, out_S_fname,
+            testing=False)
