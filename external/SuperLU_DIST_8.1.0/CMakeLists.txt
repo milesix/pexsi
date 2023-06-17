@@ -223,10 +223,10 @@ if (TPL_ENABLE_CUDALIB)   ## want to use cuda
 endif()
 
 #--------------------- OpenMP ---------------------
-if (NOT DEFINED enable_openmp)
-  set(enable_openmp TRUE)
+if (NOT DEFINED PEXSI_ENABLE_OPENMP )
+  set(PEXSI_ENABLE_OPENMP  TRUE)
 endif ()
-if (enable_openmp)
+if (PEXSI_ENABLE_OPENMP)
   find_package(OpenMP)
 ## include(FindOpenMP)  # Strumpack uses this
 
@@ -302,6 +302,7 @@ if (TPL_ENABLE_HIPLIB)   ## want to use hip
 endif()
 
 #--------------------- BLAS ---------------------
+set(TPL_ENABLE_INTERNAL_BLASLIB OFF)
 if(NOT TPL_ENABLE_INTERNAL_BLASLIB)
 #  set(TPL_BLAS_LIBRARIES "" CACHE FILEPATH
 #    "Override of list of absolute path to libs for BLAS.")
