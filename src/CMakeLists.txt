@@ -148,9 +148,9 @@ target_include_directories( pexsi
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
   PRIVATE
-    "${PEXSI_DIR}/external/parmetis_4.0.3/include"
-    "${PEXSI_DIR}/external/SuperLU_DIST_8.1.0/SRC"
-    "${PEXSI_DIR}/external/parmetis_4.0.3/metis/include/"
+    "${CMAKE_SOURCE_DIR}/external/parmetis_4.0.3/include"
+    "${CMAKE_SOURCE_DIR}/external/SuperLU_DIST_8.1.0/SRC"
+    "${CMAKE_SOURCE_DIR}/external/parmetis_4.0.3/metis/include/"
 )
 
 

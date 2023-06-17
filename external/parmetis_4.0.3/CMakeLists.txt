@@ -1,8 +1,7 @@
-cmake_minimum_required(VERSION 2.8)
-project(ParMETIS)
 
-set(GKLIB_PATH "${ParMETIS_DIR}/metis/GKlib" CACHE PATH "path to GKlib")
-set(METIS_PATH "${ParMETIS_DIR}/metis" CACHE PATH "path to METIS")
+
+set(GKLIB_PATH "${CMAKE_SOURCE_DIR}/external/parmetis_4.0.3/metis/GKlib" CACHE PATH "path to GKlib")
+set(METIS_PATH "${CMAKE_SOURCE_DIR}/external/parmetis_4.0.3/metis" CACHE PATH "path to METIS")
 
 # Symlink ./metis to wherever metis is. This allows files to be
 # included from metis/libmetis/.

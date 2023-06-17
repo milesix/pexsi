@@ -31,8 +31,9 @@ option(TPL_ENABLE_INTERNAL_BLASLIB  "Build the CBLAS library" ${enable_blaslib_D
 option(TPL_BLAS_LIBRARIES "List of absolute paths to blas libraries [].")
 #-- ParMETIS
 option(TPL_ENABLE_PARMETISLIB   "Build the ParMETIS library" ON)
-option(TPL_PARMETIS_LIBRARIES "List of absolute paths to ParMETIS link libraries [].")
-option(TPL_PARMETIS_INCLUDE_DIRS "List of absolute paths to ParMETIS include directories [].")
+option(TPL_PARMETIS_LIBRARIES "List of absolute paths to ParMETIS link libraries []." ON)
+set(ParMETIS_DIR              "${CMAKE_SOURCE_DIR}/external/parmetis_4.0.3")
+option(TPL_PARMETIS_INCLUDE_DIRS "List of absolute paths to ParMETIS include directories []." "${ParMETIS_DIR}/include;${ParMETIS_DIR}/metis/include")
 #-- LAPACK
 option(TPL_ENABLE_LAPACKLIB "Enable LAPACK library" OFF)
 option(TPL_LAPACK_LIBRARIES "List of absolute paths to LAPACK libraries [].")
@@ -362,6 +363,7 @@ else()
 endif()
 
 #--------------------- ParMETIS ---------------------
+set(TPL_PARMETIS_INCLUDE_DIRS "${ParMETIS_DIR}/include;${ParMETIS_DIR}/metis/include")
 if (TPL_ENABLE_PARMETISLIB)   ## want to use parmetis
   if (NOT TPL_PARMETIS_LIBRARIES)
     message(FATAL_ERROR "TPL_PARMETIS_LIBRARIES option should be set for PARMETIS support to be enabled.")
