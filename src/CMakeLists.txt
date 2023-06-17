@@ -161,10 +161,12 @@ include( GNUInstallDirs )
 set( INSTALL_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/PEXSI )
 
 # Targets
-install(TARGETS pexsi
+add_dependencies(pexsi superlu_dist parmetis)
+install(TARGETS pexsi 
     EXPORT pexsi-targets
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    
 )
 
 set_target_properties( pexsi PROPERTIES EXPORT_NAME PEXSI )
