@@ -49,7 +49,7 @@ project( PEXSI VERSION 2.0.0 LANGUAGES CXX C Fortran )
 option( PEXSI_ENABLE_PROFILE    "Enable Performance Profiling"        OFF )
 #option( PEXSI_ENABLE_SYMPACK    "Enable interface to symPACK"         OFF )
 option( PEXSI_ENABLE_OPENMP     "Enable OpenMP Bindings"              OFF )
-option( PEXSI_ENABLE_FORTRAN    "Enable Fortran Bindings"             OFF  )
+option( PEXSI_ENABLE_FORTRAN    "Enable Fortran Bindings"             ON  )
 
 
 # Append local cmake directory to find CMAKE Modules
