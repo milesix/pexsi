@@ -4815,16 +4815,13 @@ PPEXSIData::DFTDriver2 (
 
     GetTime( timePEXSIEnd );
     timePEXSI = timePEXSIEnd - timePEXSISta;
-    /*
+
     if( verbosity >= 1 ) {
       for(int i = 0; i < numShift; i++){
         statusOFS << " MuPEXSI from Point :" << i << " is  " << shiftVec[i]<< " numElectron " << NeVec[i] << std::endl;
-        if( (i < numShift-1 )&& (NeVec[i] > NeVec[i+1]) ) {
-          statusOFS << " number of poles is not enough for the calculation, try increase the number of poles. " << std::endl;
-        }
       }
     }
-    */
+
     int iFLAG;
     InterpolateDMReal(
         numElectronExact,
@@ -5954,6 +5951,8 @@ void PPEXSIData::InterpolateDMReal(
   MPI_Comm_split( gridPole_->colComm, myPointRank, myPoint, &pointRowComm);
 
   bool isMuReasonable = true; 
+  Real muReasonableTolerance = 1e-5;  // FIXME Magic number
+
   Int l, idxMin, idxMax;
   idxMin = -1;
   idxMax = nPoints;
@@ -6034,8 +6033,9 @@ void PPEXSIData::InterpolateDMReal(
         idxMin = numShift - 2; 
     }
 
+    iFLAG = 0;
     for(int i = 0; i < numShift; i++){
-      if( (i < numShift-1 )&& (NeVec[i] > NeVec[i+1]) ) {
+      if( (i < numShift-1 )&& (NeVec[i] > NeVec[i+1] + muReasonableTolerance ) ) {
         statusOFS << " MuPEXSI from Point :" << i << " is  " << shiftVec[i]<< 
           " numElectron " << NeVec[i] << std::endl;
         statusOFS << " MuPEXSI from Point :" << i+1 << " is  " << shiftVec[i+1]<< 
@@ -6295,6 +6295,8 @@ void PPEXSIData::InterpolateDMComplex(
   MPI_Comm_split( gridPole_->colComm, myPointRank, myPoint, &pointRowComm);
 
   bool isMuReasonable = true; 
+  Real muReasonableTolerance = 1e-5; // FIXME Magic number
+
   Int l, idxMin, idxMax;
   idxMin = -1;
   idxMax = nPoints;
@@ -6374,8 +6376,9 @@ void PPEXSIData::InterpolateDMComplex(
         idxMin = numShift - 2; 
     }
 
+    iFLAG = 0;
     for(int i = 0; i < numShift; i++){
-      if( (i < numShift-1 )&& (NeVec[i] > NeVec[i+1]) ) {
+      if( (i < numShift-1 )&& (NeVec[i] > NeVec[i+1] + muReasonableTolerance) ) {
         statusOFS << " MuPEXSI from Point :" << i << " is  " << shiftVec[i]<< 
           " numElectron " << NeVec[i] << std::endl;
         statusOFS << " MuPEXSI from Point :" << i+1 << " is  " << shiftVec[i+1]<< 
