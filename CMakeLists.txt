@@ -76,6 +76,14 @@ endif()
 #include( PEXSIBasicDepends ) # Basic Dependencies
 #include( PEXSITPLDepends   ) # TPL Dependencies
 
+# Set up required compiler defines and options.
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
+
+#parmetis
+add_subdirectory(external/parmetis_4.0.3 )
+
+# superlu_dist
+add_subdirectory(external/SuperLU_DIST_8.1.0 )
 
 # libPEXSI
 add_subdirectory( src )
@@ -83,12 +91,6 @@ add_subdirectory( src )
 if( PEXSI_ENABLE_FORTRAN )
   add_subdirectory( fortran )
 endif()
-
-# superlu_dist
-add_subdirectory(external/SuperLU_DIST_8.1.0 )
-
-#parmetis
-add_subdirectory(external/parmetis_4.0.3 )
 
 
 # examples

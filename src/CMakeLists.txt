@@ -104,7 +104,7 @@ else()
 endif()
 
 # SuperLU Dist
-# find_package( SuperLU_DIST REQUIRED )
+find_package( SuperLU_DIST REQUIRED )
 target_link_libraries( pexsi PUBLIC superlu_dist)
 
 #parmetis
@@ -161,9 +161,9 @@ include( GNUInstallDirs )
 set( INSTALL_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/PEXSI )
 
 # Targets
-add_dependencies(pexsi superlu_dist parmetis)
-install(TARGETS pexsi 
-    EXPORT pexsi-targets
+export(TARGETS pexsi superlu_dist parmetis metis FILE pexsi-targets.cmake)
+install(TARGETS pexsi superlu_dist parmetis metis
+    EXPORT pexsi-targets 
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
     
