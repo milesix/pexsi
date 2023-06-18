@@ -301,7 +301,7 @@ int main(int argc, char **argv)
   options.muInertiaTolerance = 0.05;
   options.isSymbolicFactorize = 1;
   options.method = method;
-  options.nPoints = 2;
+  options.nPoints = 1;
   int npoints = options.nPoints;
   #ifdef WITH_SYMPACK
   options.solver = 1;

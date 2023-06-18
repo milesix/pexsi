@@ -185,13 +185,11 @@ int main(int argc, char **argv)
     /* Step 1. Initialize PEXSI */
 
     PPEXSISetDefaultOptions( &options );
-    options.muMin0 = 0.0;
-    options.muMax0 = 0.5;
-    options.mu0    = 0.0;
+    options.muMin0 = 0.20;
+    options.muMax0 = 0.30;
     options.npSymbFact = 1;
     options.ordering = 0;
     options.isInertiaCount = 1;
-    options.maxPEXSIIter   = 1;
     options.verbosity = 1;
     options.deltaE   = 20.0;
     options.numPole  = 40;
@@ -212,32 +210,33 @@ int main(int argc, char **argv)
         HMat.nzvalLocal.Data(),
         isSIdentity,
         SMat.nzvalLocal.Data(),
+        options.solver,
         options.verbosity );
 
     // PEXSI Solve
-    pexsi.DFTDriver2_Deprecate(
+    pexsi.DFTDriver2(
         numElectronExact,
         options.temperature,
         options.gap,
         options.deltaE,
         options.numPole,
-        options.isInertiaCount,
-        options.muMin0,
-        options.muMax0,
-        options.mu0,
         options.muInertiaTolerance,
-        options.muInertiaExpansion,
         options.numElectronPEXSITolerance,
         options.matrixType,
         options.isSymbolicFactorize,
+        options.solver,
+        options.symmetricStorage,
         options.ordering,
         options.npSymbFact,
         options.verbosity,
         muPEXSI,
         numElectronPEXSI,
-        muMinInertia,
-        muMaxInertia,
-        numTotalInertiaIter );
+        options.muMin0,
+        options.muMax0,
+        numTotalInertiaIter,
+        options.method,
+        options.nPoints,
+        options.spin);
 
     // Retrieve data
     if( isProcRead == 1 ){

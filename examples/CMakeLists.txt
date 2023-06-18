@@ -68,7 +68,7 @@ add_pexsi_example_exe( driver_pselinv_complex_unsym .c )
 # CXX Examples
 add_pexsi_example_exe( run_fermi         .cpp )
 add_pexsi_example_exe( run_fermi_complex .cpp )
-#add_pexsi_example_exe( run_ksdft         .cpp )
+add_pexsi_example_exe( run_ksdft         .cpp )
 #add_pexsi_example_exe( run_inertia       .cpp )
 add_pexsi_example_exe( run_pselinv       .cpp )
 add_pexsi_example_exe( run_pselinv_unsym .cpp )
