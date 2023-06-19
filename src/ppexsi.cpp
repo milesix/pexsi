@@ -116,7 +116,7 @@ PPEXSIData::PPEXSIData    (
   if( outputFileIndex >= 0 ){
     std::stringstream ss;
     ss << "logPEXSI" << outputFileIndex;
-    statusOFS.open( ss.str().c_str(), std::ios_base::app );
+    statusOFS.open( ss.str().c_str(), std::ios_base::out );
   }
 
   // Initialize the saved variables

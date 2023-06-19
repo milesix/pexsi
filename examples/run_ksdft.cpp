@@ -70,10 +70,11 @@ int main(int argc, char **argv)
 
   std::ofstream wrapperOFS;
   string ofsName = "logwrapper" + std::to_string(mpirank);
-  wrapperOFS.open( ofsName );
-
-  if( mpirank == 0 )
+  // only mpirank 0 outputs system information
+  if( mpirank == 0 ){
+    wrapperOFS.open( ofsName, std::ios_base::out  );
     std::cout << "Wrapper output file name: " << ofsName << endl;
+  }
 
   wrapperOFS << "This is a wrapper for DFTDriver2. " << endl 
     << "It can be used to test the performance of PEXSI for dumped out H, S matrices." << endl << endl;
@@ -375,7 +376,6 @@ int main(int argc, char **argv)
   }
   catch( std::exception& e )
   {
-    // std::cerr << "Error message in " << ofsName << endl;
     std::cerr  << endl << " ERROR!!! Proc " << mpirank << " caught exception with message: " << endl
       << e.what() << endl;
   }
