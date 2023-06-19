@@ -104,7 +104,7 @@ else()
 endif()
 
 # SuperLU Dist
-find_package( SuperLU_DIST REQUIRED )
+# find_package( SuperLU_DIST REQUIRED )
 target_link_libraries( pexsi PUBLIC superlu_dist)
 
 #parmetis
