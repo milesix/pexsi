@@ -46,7 +46,10 @@ such enhancements or derivative works thereof, in binary and source code form.
 ///
 /// This can be used to test the correctness of new CPP implementation
 /// without going through the interfaces.
-/// @date 2015-12-07. Initial revision. Derived from run_ppexsi.cpp
+///
+/// @date 2015-12-07. Derived from run_ppexsi.cpp
+/// @date 2023-06-17. Update to DFTDriver2 and allow command line input
+/// to run multiple tests.
 #include "ppexsi.hpp"
 #include "c_pexsi_interface.h"
 
@@ -54,123 +57,247 @@ using namespace PEXSI;
 using namespace std;
 
 
-void Usage(){
-  std::cout 
-    << "run_ksdft" << std::endl;
-}
-
 int main(int argc, char **argv) 
 {
+ 
+  
   MPI_Init(&argc, &argv);
   int mpirank, mpisize;
   MPI_Comm_rank( MPI_COMM_WORLD, &mpirank );
   MPI_Comm_size( MPI_COMM_WORLD, &mpisize );
 
-  // PEXSI parameters
-  int           isSIdentity;                  
+  // Status file
 
+  std::ofstream wrapperOFS;
+  string ofsName = "logwrapper" + std::to_string(mpirank);
+  wrapperOFS.open( ofsName );
 
-  double        numElectronExact;
+  if( mpirank == 0 )
+    std::cout << "Wrapper output file name: " << ofsName << endl;
 
-  double        muPEXSI;
-  double        numElectronPEXSI;
-  double        muMinInertia;
-  double        muMaxInertia;
-  int           numTotalInertiaIter;
-  int           numTotalPEXSIIter;
-  int           numColLocal;
+  wrapperOFS << "This is a wrapper for DFTDriver2. " << endl 
+    << "It can be used to test the performance of PEXSI for dumped out H, S matrices." << endl << endl;
+  wrapperOFS << "Usage(options in brakets optional input parameters):" << endl << endl
+    << "run_ksdft "
+    << "-H <Hfile> [-S [Sfile]]"
+    << "-T [isText {0, 1}] "
+    << "-ne [numElectronExact] "
+    << "[-r [nprow]] [-c [npcol]] "
+    << "[-npole [numPole]] "
+    << "[-npoint [nPoints]] "
+    << "[-mumin [muMin0]] [-mumax [muMax0]] " 
+    << "[-ord [ordering {0,1,2,3}]] "
+    << "[-npsym [npSymbFact]] "
+    << "[-de [deltaE]] "
+    << "[-temp [temperature]] "
+    << "[-tolint [muInertiaTolerance]] "
+    << "[-tolne [numElectronPEXSITolerance]] "
+    << "[-verb [verbosity] {0,1,2}] "
+    << endl << endl;
 
-  char*         Hfile;
-  char*         Sfile;
-  int           isFormatted;
-
-  PPEXSIPlan    plan;
-  PPEXSIOptions options;
-
-  int           nprow, npcol;
-  MPI_Comm      readComm;
-  int           isProcRead;
-  int           outputFileIndex;
-
-
-  //	if( argc < 25 || argc%2 == 0 ) {
-  //		if( mpirank == 0 ) Usage();
-  //		MPI_Finalize();
-  //		return 0;
-  //	}
-
+  wrapperOFS << "User input: " << endl;
+  for (int i = 0; i < argc; i++) {
+    wrapperOFS << argv[i] << " ";
+  }
+  wrapperOFS << endl << endl;
 
   try{
+ 
     // *********************************************************************
-    // Input parameter
-    // 
-    // FIXME: Currently hard coded
+    // Read input parameter via parser
     // *********************************************************************
 
-    numElectronExact    = 12.0;
-    nprow               = 1;
-    npcol               = 1;
-    Hfile               = "lap2dr.matrix";
-    Sfile               = "";
-    isFormatted         = 1;
-    isSIdentity         = 1;
+    std::map<std::string,std::string> parser;
+    std::string argVal;
+    OptionsCreate(argc, argv, parser); // this is for parser
 
-    /* Split the processors to read matrix */
-    if( mpirank < nprow * npcol )
+    PPEXSIOptions options;
+    PPEXSISetDefaultOptions( &options ); // default PEXSI options
+
+    int nprow = 1;
+    argVal = parser["-r"];
+    if( argVal.empty()  )
+      wrapperOFS << "Use default value for -r " << nprow << endl;
+    else
+      nprow = std::stoi(argVal);
+  
+    int npcol = 1;
+    argVal = parser["-c"];
+    if( argVal.empty()  )
+      wrapperOFS << "Use default value for -c " << npcol << endl;
+    else
+      npcol = std::stoi(argVal);
+     
+    std::string Hfile;
+    argVal = parser["-H"];
+    if( argVal.empty() )
+      ErrorHandling("Hfile must be provided.");
+    else
+      Hfile = argVal;
+
+    int isSIdentity = 0;
+    std::string Sfile;
+    argVal = parser["-S"];
+    if( argVal.empty() ){
+      wrapperOFS << "Use default value for -S: " 
+        << "Treat the overlap matrix as an identity matrix." << endl;
+      isSIdentity = 1;
+    }
+    else
+      Sfile = argVal;
+
+    int isText;
+    argVal = parser["-T"];
+    if( argVal.empty() )
+      ErrorHandling( "-T needs to be provided. " );
+    else
+      isText = std::stoi(argVal);
+
+    int numElectronExact;
+    argVal = parser["-ne"];
+    if( argVal.empty() )
+      ErrorHandling( "-ne needs to be provided." );
+    else
+      numElectronExact = std::stoi(argVal);
+
+    argVal = parser["-npole"];
+    if( argVal.empty() )
+      wrapperOFS << "Use default value for -npole " << options.numPole << endl;
+    else
+      options.numPole = std::stoi(argVal);
+
+    argVal = parser["-npoint"];
+    if( argVal.empty() )
+      wrapperOFS << "Use default value for -npoint " << options.nPoints << endl;
+    else
+      options.nPoints = std::stoi(argVal);
+
+    argVal = parser["-mumin"];
+    if( argVal.empty() )
+      wrapperOFS << "Use default value for -mumin " << options.muMin0 << endl;
+    else
+      options.muMin0 = std::stod(argVal);
+    
+    argVal = parser["-mumax"];
+    if( argVal.empty() )
+      wrapperOFS << "Use default value for -mumax " << options.muMax0 << endl;
+    else
+      options.muMax0 = std::stod(argVal);
+
+
+    argVal = parser["-npsym"];
+    if( argVal.empty() )
+      wrapperOFS << "Use default value for -npsym " << options.npSymbFact << endl;
+    else
+      options.npSymbFact  = std::stoi(argVal);
+
+    argVal = parser["-ord"];
+    if( argVal.empty() )
+      wrapperOFS << "Use default value for -ord " << options.ordering 
+        << " (0 means PARMETIS)" << endl;
+    else
+      options.ordering = std::stoi(argVal);
+
+    argVal = parser["-de"];
+    if( argVal.empty() )
+      wrapperOFS << "Use default value for -de " << options.deltaE << endl;
+    else
+      options.deltaE = std::stod(argVal);
+
+    argVal = parser["-temp"];
+    if( argVal.empty() )
+      wrapperOFS << "Use default value for -temp " << options.temperature << endl;
+    else
+      options.temperature = std::stod(argVal);
+
+    argVal = parser["-tolint"];
+    if( argVal.empty() )
+      wrapperOFS << "Use default value for -tolint " << options.muInertiaTolerance << endl;
+    else
+      options.muInertiaTolerance = std::stod(argVal);
+
+    argVal = parser["-tolne"];
+    if( argVal.empty() )
+      wrapperOFS << "Use default value for -tolne " << options.numElectronPEXSITolerance << endl;
+    else
+      options.numElectronPEXSITolerance = std::stod(argVal);
+
+    argVal = parser["-verb"];
+    if( argVal.empty() )
+      wrapperOFS << "Use default value for -verb " << options.verbosity << endl;
+    else
+      options.verbosity= std::stoi(argVal);
+
+
+    // Check mpisize
+    int npPerPole = nprow * npcol;
+    if( mpisize % npPerPole  != 0 )
+      ErrorHandling("mpisize must be an integer multiple of nprow * npcol." );
+    if( mpisize % options.nPoints != 0 )
+      ErrorHandling("mpisize must be an integer multiple of nPoints." );
+
+
+    // *********************************************************************
+    // Read in matrix
+    // *********************************************************************
+    int           isProcRead;
+    MPI_Comm      readComm;
+    int           numColLocal; 
+    DistSparseMatrix<Real> HMat;
+    DistSparseMatrix<Real> SMat;
+    
+    // Only the first pole group reads matrix
+    if( mpirank < npPerPole  )
       isProcRead = 1;
     else
       isProcRead = 0;
 
     MPI_Comm_split( MPI_COMM_WORLD, isProcRead, mpirank, &readComm );
 
-    DistSparseMatrix<Real> HMat;
-    DistSparseMatrix<Real> SMat;
-
     if( isProcRead == 1 ){
-      printf("Proc %5d is reading file...\n", mpirank );
-      /* Read the matrix head for allocating memory */
-      if( isFormatted == 1 ){
-        ReadDistSparseMatrixFormatted( Hfile, 
+      wrapperOFS << "Proc " << mpirank << " is reading file " << Hfile << endl;
+      if( isText == 1 ){
+        ReadDistSparseMatrixFormatted( Hfile.c_str(), 
             HMat, readComm ); 
       }
       else{
-        ReadDistSparseMatrix( Hfile, HMat, readComm ); 
+        ReadDistSparseMatrix( Hfile.c_str(), HMat, readComm ); 
       }
 
       numColLocal = HMat.colptrLocal.m() - 1;
 
-      if( mpirank == 0 ){
-        printf("On processor 0...\n");
-        printf("nrows       = %d\n", HMat.size );
-        printf("nnz         = %d\n", HMat.nnz );
-        printf("nnzLocal    = %d\n", HMat.nnzLocal );
-        printf("numColLocal = %d\n", numColLocal );
-      }
+      wrapperOFS << "Finish reading H matrix." << endl;
 
       if( isSIdentity == 0 ){
-        if( isFormatted == 1 ){
-          ReadDistSparseMatrixFormatted( Sfile, SMat, readComm ); 
+        wrapperOFS << "Proc " << mpirank << " is reading file " << Sfile << endl;
+        if( isText == 1 ){
+          ReadDistSparseMatrixFormatted( Sfile.c_str(), SMat, readComm ); 
         }
         else{
-          ReadDistSparseMatrix( Sfile, SMat, readComm ); 
+          ReadDistSparseMatrix( Sfile.c_str(), SMat, readComm ); 
+        }
+        wrapperOFS << "Finish reading S matrix." << endl;
+
+        if( options.verbosity >= 1 ){
+          wrapperOFS << "nrows       = " << HMat.size << endl;
+          wrapperOFS << "nnz         = " << HMat.nnz  << endl;
+          wrapperOFS << "nnzLocal    = " << HMat.nnzLocal << endl;
+          wrapperOFS << "numColLocal = " << numColLocal << endl;
         }
       }
 
-      if( mpirank == 0 ){ 
-        printf("Finish reading the matrix.\n");
-      }
     } // Read the matrix
 
+    MPI_Comm_free( &readComm );
 
     // *********************************************************************
-    // Check the input parameters
+    // Initialize PEXSI
     // *********************************************************************
-
-    // Initialize
 
     /* Set the outputFileIndex to be the pole index */
     /* The first processor for each pole outputs information */
 
+    int outputFileIndex;
     if( mpirank % (nprow * npcol) == 0 ){
       outputFileIndex = mpirank / (nprow * npcol);
     }
@@ -178,27 +305,8 @@ int main(int argc, char **argv)
       outputFileIndex = -1;
     }
 
-    Int npPerPole = nprow * npcol;
+    wrapperOFS << "Initializing PEXSI." << endl;
     PPEXSIData pexsi( MPI_COMM_WORLD, nprow, npcol, outputFileIndex );
-
-
-    /* Step 1. Initialize PEXSI */
-
-    PPEXSISetDefaultOptions( &options );
-    options.muMin0 = 0.20;
-    options.muMax0 = 0.30;
-    options.npSymbFact = 1;
-    options.ordering = 0;
-    options.isInertiaCount = 1;
-    options.verbosity = 1;
-    options.deltaE   = 20.0;
-    options.numPole  = 40;
-    options.temperature  = 0.0019; // 300K
-    //  options.muInertiaTolerance = 0.0019;
-    options.muPEXSISafeGuard  = 0.2; 
-    options.numElectronPEXSITolerance = 0.001;
-    options.isSymbolicFactorize = 1;
-
 
     pexsi.LoadRealMatrix(
         HMat.size,                        
@@ -212,8 +320,20 @@ int main(int argc, char **argv)
         SMat.nzvalLocal.Data(),
         options.solver,
         options.verbosity );
+    
+    wrapperOFS << "Finish loading matrix into PEXSI." << endl;
+
+    // *********************************************************************
+    // Solve
+    // *********************************************************************
+    Real    muPEXSI;
+    Real    numElectronPEXSI;
+    Real    muMinInertia = options.muMin0;
+    Real    muMaxInertia = options.muMax0;
+    int     numInertiaIter;
 
     // PEXSI Solve
+    // FIXME Should just use PPEXSIOptions
     pexsi.DFTDriver2(
         numElectronExact,
         options.temperature,
@@ -229,37 +349,38 @@ int main(int argc, char **argv)
         options.ordering,
         options.npSymbFact,
         options.verbosity,
-        muPEXSI,
-        numElectronPEXSI,
-        options.muMin0,
-        options.muMax0,
-        numTotalInertiaIter,
+        muPEXSI,           // updated
+        numElectronPEXSI,  // updated
+        muMinInertia,      // updated
+        muMaxInertia,      // updated
+        numInertiaIter,    // updated
         options.method,
         options.nPoints,
         options.spin);
 
     // Retrieve data
-    if( isProcRead == 1 ){
+    wrapperOFS << "Output from DFT calculation" << endl;
 
-      if( mpirank == 0 ){
-        printf("Output from the main program\n");
-        printf("Total energy (H*DM)         = %15.5f\n", pexsi.TotalEnergyH());
-        printf("Total energy (S*EDM)        = %15.5f\n", pexsi.TotalEnergyS());
-        printf("Total free energy           = %15.5f\n", pexsi.TotalFreeEnergy());
-      }
-    }
+    Print(wrapperOFS, "muPEXSI               = ", muPEXSI);
+    Print(wrapperOFS, "numElectronPEXSI      = ", numElectronPEXSI);
+    Print(wrapperOFS, "muMinInertia          = ", muMinInertia);
+    Print(wrapperOFS, "muMinInertia          = ", muMaxInertia);
+    Print(wrapperOFS, "numInertiaIter        = ", numInertiaIter);
+    Print(wrapperOFS, "Total energy (H*DM)   = ", pexsi.TotalEnergyH());
+    Print(wrapperOFS, "Total energy (S*EDM)  = ", pexsi.TotalEnergyS());
+    Print(wrapperOFS, "Total free            = ", pexsi.TotalFreeEnergy());
+    
+    wrapperOFS << "Output from DFT calculation" << endl;
 
-    // No need for clean up
   }
   catch( std::exception& e )
   {
-    statusOFS << std::endl << " ERROR!!! Proc " << mpirank << " caught exception with message: "
-      << e.what() << std::endl;
-    statusOFS.close();
-    statusOFS << std::endl << " ERROR!!! Proc " << mpirank << " caught exception with message: "
-      << e.what() << std::endl;
+    // std::cerr << "Error message in " << ofsName << endl;
+    std::cerr  << endl << " ERROR!!! Proc " << mpirank << " caught exception with message: " << endl
+      << e.what() << endl;
   }
 
+  wrapperOFS.close();
   MPI_Finalize();
 
   return 0;
