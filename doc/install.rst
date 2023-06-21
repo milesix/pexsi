@@ -9,7 +9,7 @@ Installation
 
 Quick start
 ============
-
+.. note::
     We understand the challenges that come with managing dependencies,
     and we have taken steps to simplify the installation experience. 
     With the new approach, you can follow these straightforward steps to install PEXSI: 
