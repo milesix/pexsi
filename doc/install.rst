@@ -1,14 +1,28 @@
 Installation
 ----------------
 
-.. warning::
-  Often a software package has a "quick installation guide" which allows
-  the software to be installed with a handful of generic lines (at least
-  for the serial mode).  Unfortunately due to dependencies, we have not
-  been able to work out a simple solution for PEXSI. We are very
-  conscious about this and would like to find a better solution in the
-  future. For now please be patient and go through the following steps..
-  
+.. note::
+    In the latest version of PEXSI (v2.1 or higher), we have made significant improvements to
+    the installation process by bunding all dependencies within the "external"
+    directory. This means that you can now use CMake to quickly install PEXSI 
+    without the need to separately download additional software.
+
+Quick start
+============
+
+    We understand the challenges that come with managing dependencies,
+    and we have taken steps to simplify the installation experience. 
+    With the new approach, you can follow these straightforward steps to install PEXSI: 
+    
+    
+    1. Clone or download the latest version of PEXSI from the repository. Make sure your system has cmake version 3.17 or higher installed.
+    2. Navigate to the "config" folder, which contains installation script examples.
+    3. Modify the cmake configuration file in the "config/toolchains" directly according to your environment and compiler. 
+    4. Run the "config/build.sh" script to start the installation process.
+
+    To provide more detailed instructions, please refer to the following sections for step-by-step installation guidelines.
+    
+
 
 Dependencies
 ============
@@ -16,9 +30,10 @@ Dependencies
 PEXSI requires an external parallel :math:`LU` factorization or
 :math:`LDL^T` factorization routine (default is SuperLU_DIST), and an
 external parallel matrix reordering routine (default is ParMETIS) to
-reduce the fill-in of the factorization routine. These packages need to
-be downloaded and installed separately, before building the PEXSI
-package.
+reduce the fill-in of the factorization routine. Please note that the required
+packages are already include in the "external/" directory. You do not need
+to download them separately. These packages also are ready to be install as part of
+the PEXSI build process. You can build the PEXSI package directly.
 
 ..
   Starting from v1.0, PEXSI requires both symPACK and SuperLU_DIST.
@@ -40,12 +55,9 @@ Although the standard makefile system is supported, starting from v2.0,
 we recommend the usage of the CMake system.
 
 
-Build ParMETIS
+Build ParMETIS 
 ==============
 
-Download ParMETIS (latest version 4.0.3) from
-
-http://glaros.dtc.umn.edu/gkhome/fetch/sw/parmetis/parmetis-4.0.3.tar.gz
 
 ..
   After untar the ParMETIS package, in Install.txt
@@ -60,27 +72,21 @@ http://glaros.dtc.umn.edu/gkhome/fetch/sw/parmetis/parmetis-4.0.3.tar.gz
     #define IDXTYPEWIDTH 32
 
 .. note::
-
-  ParMETIS has its own (slightly non-standard) CMake system. Be sure to
-  follow `Install.txt` and `BUILD.txt` after untaring the file.
-
-  We provide an example bash script for building ParMETIS (see
-  `build_parmetis.sh <https://bitbucket.org/berkeleylab/pexsi/src/cmake-refactor/config/build_parmetis.sh>`_)
+  Please note that we have already prepared ParMETIS (latest version 4.0.3) in the "external" directory.
+  These packages also are ready to be install as part of
+  the PEXSI build process. You can build the PEXSI package directly.
 
 
 Build SuperLU_DIST
 ==================
 
 
-Download SuperLU_DIST (latest version 7.2.0) from
-
-https://github.com/xiaoyeli/superlu_dist/archive/v7.2.0.tar.gz
-
 .. note::
 
-  We provide an example bash script for building SuperLU_DIST (see
-  `build_superlu_dist.sh <https://bitbucket.org/berkeleylab/pexsi/src/cmake-refactor/config/build_superlu_dist.sh>`_)
-
+  Please note that we have already prepared SuperLU_DIST (latest version 8.1.0) 
+  in the "external" directory.
+  These packages also are ready to be install as part of
+  the PEXSI build process. You can build the PEXSI package directly.
 
 ..
   Follow the installation step to install SuperLU_DIST.
@@ -108,11 +114,16 @@ https://github.com/xiaoyeli/superlu_dist/archive/v7.2.0.tar.gz
    sometimes a **magic parameter**. See :ref:`FAQ page <pageFAQ>`.
 
 
+.. _build_pexsi:
+
 Build PEXSI
 ===========
 
 The recommended method to build PEXSI is to use CMake. You may also use
 the :ref:`old makefile system <Makefile>`.
+However, if you choose to install using the makefile system,
+please note that you will need to separately install SuperLU_DIST and ParMETIS
+before proceeding with the installation.
 
 .. note:: 
 
@@ -190,8 +201,7 @@ as either a prefix path or as a full linker
      - Location of <DEP> header files
      - (None)
 
-Here, ``<DEP>`` is one of ``SuperLU_DIST``, ``METIS``, ``ParMETIS``,
-``BLAS``, or ``LAPACK``. Note that the ``(PT-)SCOTCH`` and ``symPACK``
+Here, ``<DEP>`` is one of ``BLAS``, or ``LAPACK``. Note that the ``(PT-)SCOTCH`` and ``symPACK``
 build paths are not supported through the build system at this time.
 
 .. note:: 
@@ -214,8 +224,6 @@ a single "toolchain" file, e.g. ::
   set( CMAKE_C_COMPILER       gcc      )
   set( CMAKE_CXX_COMPILER     g++      )
   set( CMAKE_Fortran_COMPILER gfortran )
-  set( SuperLU_DIST_PREFIX    "/yourdirectory/SuperLU_DIST_install/v6.1.0" )
-  set( ParMETIS_PREFIX        "/yourdirectory/parmetis-4.0.3_install" )
 
 Toolchains may be specified by ``CMAKE_TOOLCHAIN_FILE`` as a full path::
 
@@ -242,9 +250,6 @@ Toolchains may be specified by ``CMAKE_TOOLCHAIN_FILE`` as a full path::
   Edit the variables in ``build.sh``  ::
      
       PEXSI_INSTALL_DIR=Directory to install PEXSI
-      DSUPERLU_DIR=Directory for SuperLU_DIST
-      PARMETIS_DIR=Directory for ParMETIS 
-      PTSCOTCH_DIR=Directory for PT-Scotch
   
   Edit the compiler options, for instance ::
   
