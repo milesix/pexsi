@@ -1,7 +1,7 @@
 #   Copyright (c) 2018 The Regents of the University of California,
 #   through Lawrence Berkeley National Laboratory.  
 #
-#   Author: David Williams-Young
+#   Author: David Williams-Young & Hongyu Wang
 #   
 #   This file is part of PEXSI. All rights reserved.
 #   
@@ -47,13 +47,16 @@ macro( add_pexsi_f_example_exe _name )
   target_link_libraries(  ${_name} PRIVATE parmetis )
   target_link_libraries(  ${_name} PRIVATE superlu_dist )
   target_link_libraries(  ${_name} PRIVATE stdc++)
-  target_link_libraries(  ${_name} PRIVATE mpi)
-  target_link_libraries(  ${_name} PRIVATE mpi_cxx)
+  if(MPI_Fortran_COMPILER_PATH MATCHES ".*openmpi.*")
+    target_link_libraries(  ${_name} PRIVATE mpi)
+    # target_link_libraries(  ${_name} PRIVATE mpi_cxx)
+  endif()
   set_target_properties( ${_name} PROPERTIES LINKER_LANGUAGE Fortran )
 
 endmacro()
 
-
+find_program(MPI_Fortran_COMPILER_PATH ${MPI_Fortran_COMPILER})
+message(STATUS "mpilib ${MPI_Fortran_COMPILER_PATH}")
 add_pexsi_f_example_exe( f_driver_ksdft                 )
 add_pexsi_f_example_exe( f_driver_pselinv_real          )
 add_pexsi_f_example_exe( f_driver_pselinv_complex       )
