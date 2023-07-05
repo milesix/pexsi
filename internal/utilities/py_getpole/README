@@ -1,2 +1,8 @@
-Convert the result of pole generation to getPole.cpp written by Weile
-Jia.
+You can use the following command:
+$gen_pole.py > getPole.cpp 
+This command converts the generated pole result to the `getPole.cpp` file. Then, you need to replace the `./src/getPole.cpp` file with the generated one.
+Additionally, please note that you need to replace `./include/pexsi/getPole.hpp` with `./internal/utilities/py_getpole/getPole.hpp`. Make sure to back up the file before performing the replacement.
+
+We are using the data file named PoleData123.dat, which includes data for method1, method2, and method3. To make the necessary modification, please replace "PoleData123.dat" with the filename of your data file in line 99 of gen_pole.py. Specifically, you will find the code snippet: with open("PoleData123.dat", "r") as infile:. Ensure that you substitute "PoleData123.dat" with the accurate name of your data file.
+
+If you uncomment line 177, it will generate a test code that you can compile and run.
