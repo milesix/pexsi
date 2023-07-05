@@ -9,7 +9,7 @@ Installation
 
 Quick start
 ============
-
+.. note::
     We understand the challenges that come with managing dependencies,
     and we have taken steps to simplify the installation experience. 
     With the new approach, you can follow these straightforward steps to install PEXSI: 
@@ -73,7 +73,7 @@ Build ParMETIS
 
 .. note::
   Please note that we have already prepared ParMETIS (latest version 4.0.3) in the "external" directory.
-  These packages also are ready to be install as part of
+  These packages are ready to be install as part of
   the PEXSI build process. You can build the PEXSI package directly.
 
 
@@ -85,7 +85,7 @@ Build SuperLU_DIST
 
   Please note that we have already prepared SuperLU_DIST (latest version 8.1.0) 
   in the "external" directory.
-  These packages also are ready to be install as part of
+  These packages are ready to be install as part of
   the PEXSI build process. You can build the PEXSI package directly.
 
 ..
