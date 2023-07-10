@@ -48,41 +48,14 @@ such enhancements or derivative works thereof, in binary and source code form.
 #define _PEXSI_GETPOLE_HPP_
 
 #include "pexsi/environment.hpp"
-struct Complex {
-    double x;
-    double y;
-};
 class poleClass { 
 private:
-    int size;
-    // @brief method used
-        std::vector<int> method;
-
-	// @brief number of poles used.
-        std::vector<int> numPole;
-
-	// @brief number of delta_E*beta
-        std::vector<double> beta;
-    // double* beta;
-	// @brief zshift vector
-        // std::vector< std::vector< std::complex<double> > >  zshift;
-    Complex** zshift;
-	// @brief zweight vector
-        // std::vector< std::vector< std::complex<double> > >  zweight;
-    Complex** zweight;
- 	// @brief FDMweight vector
-        // std::vector< std::vector< std::complex<double> > >  fweight;
-    Complex** fweight;
-	// @brief EDMweight2 vector
-        // std::vector< std::vector< std::complex<double> > >  eweight;
-    Complex** eweight;
     public:
         poleClass();
         ~poleClass();
-
         // @brief given a set of parameter, return a set of zweight and zshift for method = 3
         bool getPole ( int inputMethod, int inputPole, double inputBeta,  std::vector< std::complex<double> > &out_zshift, std::vector < std::complex<double> > &out_zweight, std::vector < std::complex<double> > &out_fweight, std::vector < std::complex<double> > &out_eweight );
-        
+        // bool getPole ( int inputMethod, int inputPole, double inputBeta,  std::vector< std::complex<double> > &out_zshift, std::vector < std::complex<double> > &out_zweight )
 };
 
 #endif // _PEXSI_GETPOLE_HPP_
