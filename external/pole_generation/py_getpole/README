@@ -6,3 +6,7 @@ Additionally, please note that you need to replace `./include/pexsi/getPole.hpp`
 We are using the data file named PoleData123.dat, which includes data for method1, method2, and method3. To make the necessary modification, please replace "PoleData123.dat" with the filename of your data file in line 99 of gen_pole.py. Specifically, you will find the code snippet: with open("PoleData123.dat", "r") as infile:. Ensure that you substitute "PoleData123.dat" with the accurate name of your data file.
 
 If you uncomment line 177, it will generate a test code that you can compile and run.
+
+CPP_TEST_CODE is the test code in gen_pole.py
+To compile the getPole.cpp file with the given command and add some improvements, you can use the following modified code and test the correctness of the compiled getPole :
+mpic++ -std=c++11 getPole.cpp -I/share/home/wanghongyu/Projects/pexsi/external/pole_generation/py_getpole -o getPole_executable
