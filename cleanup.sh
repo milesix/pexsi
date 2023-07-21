@@ -2,3 +2,4 @@
 
 # Remove build and install files
 rm -rf ./build_gnu/*
+rm -rf ./build/*
