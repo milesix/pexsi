@@ -1,0 +1,42 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/pexsi.dir/TreeBcast.cpp.o"
+  "CMakeFiles/pexsi.dir/TreeBcast.cpp.o.d"
+  "CMakeFiles/pexsi.dir/blas.cpp.o"
+  "CMakeFiles/pexsi.dir/blas.cpp.o.d"
+  "CMakeFiles/pexsi.dir/f_interface.f90.o"
+  "CMakeFiles/pexsi.dir/getPole.cpp.o"
+  "CMakeFiles/pexsi.dir/getPole.cpp.o.d"
+  "CMakeFiles/pexsi.dir/get_perm_c_parmetis.c.o"
+  "CMakeFiles/pexsi.dir/get_perm_c_parmetis.c.o.d"
+  "CMakeFiles/pexsi.dir/global.cpp.o"
+  "CMakeFiles/pexsi.dir/global.cpp.o.d"
+  "CMakeFiles/pexsi.dir/interface.cpp.o"
+  "CMakeFiles/pexsi.dir/interface.cpp.o.d"
+  "CMakeFiles/pexsi.dir/lapack.cpp.o"
+  "CMakeFiles/pexsi.dir/lapack.cpp.o.d"
+  "CMakeFiles/pexsi.dir/mpi_interf.cpp.o"
+  "CMakeFiles/pexsi.dir/mpi_interf.cpp.o.d"
+  "CMakeFiles/pexsi.dir/pdsymbfact.c.o"
+  "CMakeFiles/pexsi.dir/pdsymbfact.c.o.d"
+  "CMakeFiles/pexsi.dir/pole.cpp.o"
+  "CMakeFiles/pexsi.dir/pole.cpp.o.d"
+  "CMakeFiles/pexsi.dir/ppexsi.cpp.o"
+  "CMakeFiles/pexsi.dir/ppexsi.cpp.o.d"
+  "CMakeFiles/pexsi.dir/pzsymbfact.c.o"
+  "CMakeFiles/pexsi.dir/pzsymbfact.c.o.d"
+  "CMakeFiles/pexsi.dir/superlu_dist_internal_complex.cpp.o"
+  "CMakeFiles/pexsi.dir/superlu_dist_internal_complex.cpp.o.d"
+  "CMakeFiles/pexsi.dir/superlu_dist_internal_real.cpp.o"
+  "CMakeFiles/pexsi.dir/superlu_dist_internal_real.cpp.o.d"
+  "CMakeFiles/pexsi.dir/timer.cpp.o"
+  "CMakeFiles/pexsi.dir/timer.cpp.o.d"
+  "CMakeFiles/pexsi.dir/utility.cpp.o"
+  "CMakeFiles/pexsi.dir/utility.cpp.o.d"
+  "libpexsi.a"
+  "libpexsi.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C CXX Fortran)
+  include(CMakeFiles/pexsi.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

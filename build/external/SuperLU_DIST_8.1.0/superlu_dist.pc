@@ -1,0 +1,12 @@
+prefix=/usr/local
+libdir=/usr/local/lib
+includedir=/usr/local/include
+
+Name: PEXSI
+Description: Distributed-memory direct solution of sparse systems of linear equations
+Version: 8.1.0
+URL: https://portal.nersc.gov/project/sparse/superlu/
+
+Libs: -L${libdir} -lsuperlu_dist
+Libs.private: /usr/lib/x86_64-linux-gnu/libblas.so -lm
+Cflags: -I${includedir}
