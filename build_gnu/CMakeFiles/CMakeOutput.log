@@ -1,0 +1,579 @@
+The system is: Linux - 5.15.90.1-microsoft-standard-WSL2 - x86_64
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /bin/mpicxx 
+Build flags: ;-O3;-ffast-math
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/mx/prj/pexsi/build_gnu/CMakeFiles/3.22.1/CompilerIdCXX/a.out"
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /bin/mpicc 
+Build flags: ;-O3;-ffast-math
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/mx/prj/pexsi/build_gnu/CMakeFiles/3.22.1/CompilerIdC/a.out"
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" succeeded.
+Compiler: /bin/mpifort 
+Build flags: -O3;-funroll-loops;-funsafe-math-optimizations;-fallow-argument-mismatch
+Id flags: -v 
+
+The output was:
+0
+mpifort for MPICH version 4.0
+Driving: gfortran -O2 -ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=. -flto=auto -flto=auto -fstack-protector-strong -fallow-invalid-boz -Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -flto=auto -Wl,-z,relro -O3 -funroll-loops -funsafe-math-optimizations -fallow-argument-mismatch -v CMakeFortranCompilerId.F -I/usr/include/x86_64-linux-gnu/mpich -I/usr/include/x86_64-linux-gnu/mpich -L/usr/lib/x86_64-linux-gnu -lmpichfort -lmpich -l gfortran -l m -shared-libgcc
+Using built-in specs.
+COLLECT_GCC=gfortran
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04.1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) 
+COLLECT_GCC_OPTIONS='-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-flto=auto' '-flto=auto' '-fstack-protector-strong' '-fallow-invalid-boz' '-flto=auto' '-ffat-lto-objects' '-flto=auto' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-fallow-argument-mismatch' '-v' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'a-'
+ /usr/lib/gcc/x86_64-linux-gnu/11/f951 CMakeFortranCompilerId.F -ffixed-form -cpp=/tmp/ccZqLi35.f90 -quiet -v -I /usr/include/x86_64-linux-gnu/mpich -I /usr/include/x86_64-linux-gnu/mpich -imultiarch x86_64-linux-gnu CMakeFortranCompilerId.F -quiet -dumpdir a- -dumpbase CMakeFortranCompilerId.F -dumpbase-ext .F -mtune=generic -march=x86-64 -O2 -O3 -version -ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=. -flto=auto -flto=auto -fstack-protector-strong -fallow-invalid-boz -flto=auto -ffat-lto-objects -flto=auto -funroll-loops -funsafe-math-optimizations -fallow-argument-mismatch -fintrinsic-modules-path /usr/lib/gcc/x86_64-linux-gnu/11/finclude -fpre-include=/usr/include/finclude/math-vector-fortran.h -o /tmp/ccmAcR08.s
+GNU Fortran (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+ignoring duplicate directory "/usr/include/x86_64-linux-gnu/mpich"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/include/x86_64-linux-gnu/mpich
+ /usr/lib/gcc/x86_64-linux-gnu/11/finclude
+ /usr/lib/gcc/x86_64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+GNU Fortran2008 (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+COLLECT_GCC_OPTIONS='-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-flto=auto' '-flto=auto' '-fstack-protector-strong' '-fallow-invalid-boz' '-flto=auto' '-ffat-lto-objects' '-flto=auto' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-fallow-argument-mismatch' '-v' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'a-'
+ as -v -I /usr/include/x86_64-linux-gnu/mpich -I /usr/include/x86_64-linux-gnu/mpich --64 -o /tmp/cc2ItigA.o /tmp/ccmAcR08.s
+GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+Reading specs from /usr/lib/gcc/x86_64-linux-gnu/11/libgfortran.spec
+rename spec lib to liborig
+COLLECT_GCC_OPTIONS='-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-flto=auto' '-flto=auto' '-fstack-protector-strong' '-fallow-invalid-boz' '-flto=auto' '-ffat-lto-objects' '-flto=auto' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-fallow-argument-mismatch' '-v' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'a-'
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-flto=auto' '-flto=auto' '-fstack-protector-strong' '-fallow-invalid-boz' '-flto=auto' '-ffat-lto-objects' '-flto=auto' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-fallow-argument-mismatch' '-v' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'a.'
+ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMJu6BC.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lquadmath -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -flto=auto -flto=auto -flto=auto -flto=auto --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -Bsymbolic-functions -z relro /tmp/cc2ItigA.o -lmpichfort -lmpich -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtfastmath.o /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -fresolution=/tmp/ccMJu6BC.res -flinker-output=pie /tmp/cc2ItigA.o 
+/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -fresolution=/tmp/ccMJu6BC.res -flinker-output=pie /tmp/cc2ItigA.o 
+LTO parallelism level set to 4
+gfortran @/tmp/ccLozjoy
+Using built-in specs.
+COLLECT_GCC=gfortran
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04.1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) 
+COLLECT_GCC_OPTIONS='-c' '-fno-openmp' '-fno-openacc' '-fPIC' '-fcf-protection=none' '-O2' '-O3' '-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-fstack-protector-strong' '-ffat-lto-objects' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-v' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64'   '-fltrans-output-list=/tmp/cc5SoZes.ltrans.out' '-fwpa=4' '-fresolution=/tmp/ccMJu6BC.res' '-flinker-output=pie'
+ /usr/lib/gcc/x86_64-linux-gnu/11/lto1 -quiet -dumpbase ./a.wpa -mtune=generic -march=x86-64 -O2 -O3 -O2 -O3 -version -fno-openmp -fno-openacc -fPIC -fcf-protection=none -ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=. -fstack-protector-strong -ffat-lto-objects -funroll-loops -funsafe-math-optimizations -fltrans-output-list=/tmp/cc5SoZes.ltrans.out -fwpa=4 -fresolution=/tmp/ccMJu6BC.res -flinker-output=pie @/tmp/ccSPLgGN
+GNU GIMPLE (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+GNU GIMPLE (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/../lib/:/lib/../lib/x86_64-linux-gnu/:/lib/../lib/../lib/:/usr/lib/../lib/x86_64-linux-gnu/:/usr/lib/../lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-c' '-fno-openmp' '-fno-openacc' '-fPIC' '-fcf-protection=none' '-O2' '-O3' '-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-fstack-protector-strong' '-ffat-lto-objects' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-v' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64'   '-fltrans-output-list=/tmp/cc5SoZes.ltrans.out' '-fwpa=4' '-fresolution=/tmp/ccMJu6BC.res' '-flinker-output=pie' '-dumpdir' './a.wpa.'
+make -f /tmp/ccsCsm8e.mk -j4 all
+Using built-in specs.
+COLLECT_GCC=gfortran
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04.1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) 
+COLLECT_GCC_OPTIONS='-c' '-fno-openmp' '-fno-openacc' '-fPIC' '-fcf-protection=none' '-O2' '-O3' '-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-fstack-protector-strong' '-ffat-lto-objects' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-v' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64'   '-fltrans' '-o' '/tmp/cc5SoZes.ltrans0.ltrans.o'
+ /usr/lib/gcc/x86_64-linux-gnu/11/lto1 -quiet -dumpbase ./a.ltrans0.ltrans -mtune=generic -march=x86-64 -O2 -O3 -O2 -O3 -version -fno-openmp -fno-openacc -fPIC -fcf-protection=none -ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=. -fstack-protector-strong -ffat-lto-objects -funroll-loops -funsafe-math-optimizations -fltrans /tmp/cc5SoZes.ltrans0.o -o /tmp/ccW0Dk3R.s
+GNU GIMPLE (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+GNU GIMPLE (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+COLLECT_GCC_OPTIONS='-c' '-fno-openmp' '-fno-openacc' '-fPIC' '-fcf-protection=none' '-O2' '-O3' '-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-fstack-protector-strong' '-ffat-lto-objects' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-v' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64'   '-fltrans' '-o' '/tmp/cc5SoZes.ltrans0.ltrans.o'
+ as -v --64 -o /tmp/cc5SoZes.ltrans0.ltrans.o /tmp/ccW0Dk3R.s
+GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+MAKEFLAGS= -j4 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/../lib/:/lib/../lib/x86_64-linux-gnu/:/lib/../lib/../lib/:/usr/lib/../lib/x86_64-linux-gnu/:/usr/lib/../lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-c' '-fno-openmp' '-fno-openacc' '-fPIC' '-fcf-protection=none' '-O2' '-O3' '-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-fstack-protector-strong' '-ffat-lto-objects' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-v' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64'   '-fltrans' '-o' '/tmp/cc5SoZes.ltrans0.ltrans.o' '-dumpdir' './a.ltrans0.ltrans.'
+COLLECT_GCC_OPTIONS='-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-flto=auto' '-flto=auto' '-fstack-protector-strong' '-fallow-invalid-boz' '-flto=auto' '-ffat-lto-objects' '-flto=auto' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-fallow-argument-mismatch' '-v' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'a.'
+
+
+Compilation of the Fortran compiler identification source "CMakeFortranCompilerId.F" produced "a.out"
+
+The Fortran compiler identification is GNU, found in "/home/mx/prj/pexsi/build_gnu/CMakeFiles/3.22.1/CompilerIdFortran/a.out"
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/bin/gmake -f Makefile cmTC_20cd1/fast && /bin/gmake  -f CMakeFiles/cmTC_20cd1.dir/build.make CMakeFiles/cmTC_20cd1.dir/build
+gmake[1]: Entering directory '/home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_20cd1.dir/CMakeCXXCompilerABI.cpp.o
+/bin/mpicxx   -O3 -ffast-math    -v -o CMakeFiles/cmTC_20cd1.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+mpicxx for MPICH version 4.0
+Using built-in specs.
+COLLECT_GCC=g++
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04.1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) 
+COLLECT_GCC_OPTIONS='-O3' '-ffast-math' '-v' '-o' 'CMakeFiles/cmTC_20cd1.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_20cd1.dir/'
+ /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -I /usr/include/x86_64-linux-gnu/mpich -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_20cd1.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -O3 -version -ffast-math -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccrchWbS.s
+GNU C++17 (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/11"
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/include/x86_64-linux-gnu/mpich
+ /usr/include/c++/11
+ /usr/include/x86_64-linux-gnu/c++/11
+ /usr/include/c++/11/backward
+ /usr/lib/gcc/x86_64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+GNU C++17 (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 2b9b53ff7f3a6952e2fe60119c16be53
+COLLECT_GCC_OPTIONS='-O3' '-ffast-math' '-v' '-o' 'CMakeFiles/cmTC_20cd1.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_20cd1.dir/'
+ as -v -I /usr/include/x86_64-linux-gnu/mpich --64 -o CMakeFiles/cmTC_20cd1.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccrchWbS.s
+GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-O3' '-ffast-math' '-v' '-o' 'CMakeFiles/cmTC_20cd1.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_20cd1.dir/CMakeCXXCompilerABI.cpp.'
+Linking CXX executable cmTC_20cd1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_20cd1.dir/link.txt --verbose=1
+/bin/mpicxx  -O3 -ffast-math  -L/usr/lib/x86_64-linux-gnu -lmpi -v CMakeFiles/cmTC_20cd1.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_20cd1 
+mpicxx for MPICH version 4.0
+Using built-in specs.
+COLLECT_GCC=g++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04.1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-flto=auto' '-ffat-lto-objects' '-flto=auto' '-O3' '-ffast-math' '-L/usr/lib/x86_64-linux-gnu' '-v' '-o' 'cmTC_20cd1' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_20cd1.'
+ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cc9BQ5Vr.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -flto=auto -flto=auto --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_20cd1 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -Bsymbolic-functions -z relro -lmpi CMakeFiles/cmTC_20cd1.dir/CMakeCXXCompilerABI.cpp.o -lmpichcxx -lmpich -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtfastmath.o /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-flto=auto' '-ffat-lto-objects' '-flto=auto' '-O3' '-ffast-math' '-L/usr/lib/x86_64-linux-gnu' '-v' '-o' 'cmTC_20cd1' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_20cd1.'
+gmake[1]: Leaving directory '/home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/include/x86_64-linux-gnu/mpich]
+    add: [/usr/include/c++/11]
+    add: [/usr/include/x86_64-linux-gnu/c++/11]
+    add: [/usr/include/c++/11/backward]
+    add: [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+    add: [/usr/local/include]
+    add: [/usr/include/x86_64-linux-gnu]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/include/x86_64-linux-gnu/mpich] ==> [/usr/include/x86_64-linux-gnu/mpich]
+  collapse include dir [/usr/include/c++/11] ==> [/usr/include/c++/11]
+  collapse include dir [/usr/include/x86_64-linux-gnu/c++/11] ==> [/usr/include/x86_64-linux-gnu/c++/11]
+  collapse include dir [/usr/include/c++/11/backward] ==> [/usr/include/c++/11/backward]
+  collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/11/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/include/x86_64-linux-gnu/mpich;/usr/include/c++/11;/usr/include/x86_64-linux-gnu/c++/11;/usr/include/c++/11/backward;/usr/lib/gcc/x86_64-linux-gnu/11/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(gcc|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/bin/gmake -f Makefile cmTC_20cd1/fast && /bin/gmake  -f CMakeFiles/cmTC_20cd1.dir/build.make CMakeFiles/cmTC_20cd1.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_20cd1.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/bin/mpicxx   -O3 -ffast-math    -v -o CMakeFiles/cmTC_20cd1.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [mpicxx for MPICH version 4.0]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=g++]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04.1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  link line: [gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) ]
+    arg [gcc] ==> ignore
+    arg [version] ==> ignore
+    arg [11.3.0] ==> ignore
+    arg [(Ubuntu] ==> ignore
+    arg [11.3.0-1ubuntu1~22.04.1)] ==> ignore
+  implicit libs: []
+  implicit objs: []
+  implicit dirs: []
+  implicit fwks: []
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/bin/gmake -f Makefile cmTC_ab0c2/fast && /bin/gmake  -f CMakeFiles/cmTC_ab0c2.dir/build.make CMakeFiles/cmTC_ab0c2.dir/build
+gmake[1]: Entering directory '/home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ab0c2.dir/CMakeCCompilerABI.c.o
+/bin/mpicc   -O3 -ffast-math    -v -o CMakeFiles/cmTC_ab0c2.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
+mpicc for MPICH version 4.0
+Using built-in specs.
+COLLECT_GCC=gcc
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04.1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) 
+COLLECT_GCC_OPTIONS='-O3' '-ffast-math' '-v' '-o' 'CMakeFiles/cmTC_ab0c2.dir/CMakeCCompilerABI.c.o' '-c' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ab0c2.dir/'
+ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -I /usr/include/x86_64-linux-gnu/mpich -imultiarch x86_64-linux-gnu /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_ab0c2.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -O3 -version -ffast-math -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccQavPNU.s
+GNU C17 (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/include/x86_64-linux-gnu/mpich
+ /usr/lib/gcc/x86_64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+GNU C17 (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: e13e2dc98bfa673227c4000e476a9388
+COLLECT_GCC_OPTIONS='-O3' '-ffast-math' '-v' '-o' 'CMakeFiles/cmTC_ab0c2.dir/CMakeCCompilerABI.c.o' '-c' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ab0c2.dir/'
+ as -v -I /usr/include/x86_64-linux-gnu/mpich --64 -o CMakeFiles/cmTC_ab0c2.dir/CMakeCCompilerABI.c.o /tmp/ccQavPNU.s
+GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-O3' '-ffast-math' '-v' '-o' 'CMakeFiles/cmTC_ab0c2.dir/CMakeCCompilerABI.c.o' '-c' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ab0c2.dir/CMakeCCompilerABI.c.'
+Linking C executable cmTC_ab0c2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ab0c2.dir/link.txt --verbose=1
+/bin/mpicc  -O3 -ffast-math  -L/usr/lib/x86_64-linux-gnu -lmpi -v CMakeFiles/cmTC_ab0c2.dir/CMakeCCompilerABI.c.o -o cmTC_ab0c2 
+mpicc for MPICH version 4.0
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04.1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-flto=auto' '-ffat-lto-objects' '-flto=auto' '-O3' '-ffast-math' '-L/usr/lib/x86_64-linux-gnu' '-v' '-o' 'cmTC_ab0c2' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-L/usr/lib/x86_64-linux-gnu' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_ab0c2.'
+ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cc7nT7qu.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -flto=auto -flto=auto --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_ab0c2 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -Bsymbolic-functions -z relro -lmpi CMakeFiles/cmTC_ab0c2.dir/CMakeCCompilerABI.c.o -lmpich -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtfastmath.o /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-flto=auto' '-ffat-lto-objects' '-flto=auto' '-O3' '-ffast-math' '-L/usr/lib/x86_64-linux-gnu' '-v' '-o' 'cmTC_ab0c2' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-L/usr/lib/x86_64-linux-gnu' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_ab0c2.'
+gmake[1]: Leaving directory '/home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/include/x86_64-linux-gnu/mpich]
+    add: [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+    add: [/usr/local/include]
+    add: [/usr/include/x86_64-linux-gnu]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/include/x86_64-linux-gnu/mpich] ==> [/usr/include/x86_64-linux-gnu/mpich]
+  collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/11/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/include/x86_64-linux-gnu/mpich;/usr/lib/gcc/x86_64-linux-gnu/11/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(gcc|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/bin/gmake -f Makefile cmTC_ab0c2/fast && /bin/gmake  -f CMakeFiles/cmTC_ab0c2.dir/build.make CMakeFiles/cmTC_ab0c2.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_ab0c2.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/bin/mpicc   -O3 -ffast-math    -v -o CMakeFiles/cmTC_ab0c2.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c]
+  ignore line: [mpicc for MPICH version 4.0]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=gcc]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04.1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  link line: [gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) ]
+    arg [gcc] ==> ignore
+    arg [version] ==> ignore
+    arg [11.3.0] ==> ignore
+    arg [(Ubuntu] ==> ignore
+    arg [11.3.0-1ubuntu1~22.04.1)] ==> ignore
+  implicit libs: []
+  implicit objs: []
+  implicit dirs: []
+  implicit fwks: []
+
+
+Detecting Fortran compiler ABI info compiled with the following output:
+Change Dir: /home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/bin/gmake -f Makefile cmTC_39112/fast && /bin/gmake  -f CMakeFiles/cmTC_39112.dir/build.make CMakeFiles/cmTC_39112.dir/build
+gmake[1]: Entering directory '/home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp'
+Building Fortran object CMakeFiles/cmTC_39112.dir/CMakeFortranCompilerABI.F90.o
+/bin/mpifort   -O3 -funroll-loops -funsafe-math-optimizations -fallow-argument-mismatch    -v -c /usr/share/cmake-3.22/Modules/CMakeFortranCompilerABI.F90 -o CMakeFiles/cmTC_39112.dir/CMakeFortranCompilerABI.F90.o
+mpifort for MPICH version 4.0
+Using built-in specs.
+COLLECT_GCC=gfortran
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04.1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) 
+COLLECT_GCC_OPTIONS='-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-flto=auto' '-flto=auto' '-ffat-lto-objects' '-fstack-protector-strong' '-fallow-invalid-boz' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-fallow-argument-mismatch' '-v' '-c' '-o' 'CMakeFiles/cmTC_39112.dir/CMakeFortranCompilerABI.F90.o' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_39112.dir/'
+ /usr/lib/gcc/x86_64-linux-gnu/11/f951 /usr/share/cmake-3.22/Modules/CMakeFortranCompilerABI.F90 -cpp=/tmp/ccd1LcbG.f90 -quiet -v -I /usr/include/x86_64-linux-gnu/mpich -I /usr/include/x86_64-linux-gnu/mpich -imultiarch x86_64-linux-gnu /usr/share/cmake-3.22/Modules/CMakeFortranCompilerABI.F90 -quiet -dumpdir CMakeFiles/cmTC_39112.dir/ -dumpbase CMakeFortranCompilerABI.F90.F90 -dumpbase-ext .F90 -mtune=generic -march=x86-64 -O2 -O3 -version -ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=. -flto=auto -flto=auto -ffat-lto-objects -fstack-protector-strong -fallow-invalid-boz -funroll-loops -funsafe-math-optimizations -fallow-argument-mismatch -fintrinsic-modules-path /usr/lib/gcc/x86_64-linux-gnu/11/finclude -fpre-include=/usr/include/finclude/math-vector-fortran.h -o /tmp/ccI8MenB.s
+GNU Fortran (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+ignoring duplicate directory "/usr/include/x86_64-linux-gnu/mpich"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/include/x86_64-linux-gnu/mpich
+ /usr/lib/gcc/x86_64-linux-gnu/11/finclude
+ /usr/lib/gcc/x86_64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+GNU Fortran2008 (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+COLLECT_GCC_OPTIONS='-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-flto=auto' '-flto=auto' '-ffat-lto-objects' '-fstack-protector-strong' '-fallow-invalid-boz' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-fallow-argument-mismatch' '-v' '-c' '-o' 'CMakeFiles/cmTC_39112.dir/CMakeFortranCompilerABI.F90.o' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_39112.dir/'
+ as -v -I /usr/include/x86_64-linux-gnu/mpich -I /usr/include/x86_64-linux-gnu/mpich --64 -o CMakeFiles/cmTC_39112.dir/CMakeFortranCompilerABI.F90.o /tmp/ccI8MenB.s
+GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-flto=auto' '-flto=auto' '-ffat-lto-objects' '-fstack-protector-strong' '-fallow-invalid-boz' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-fallow-argument-mismatch' '-v' '-c' '-o' 'CMakeFiles/cmTC_39112.dir/CMakeFortranCompilerABI.F90.o' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_39112.dir/CMakeFortranCompilerABI.F90.'
+Linking Fortran executable cmTC_39112
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_39112.dir/link.txt --verbose=1
+/bin/mpifort -L/usr/lib/x86_64-linux-gnu -lmpi -v -O3 -funroll-loops -funsafe-math-optimizations -fallow-argument-mismatch  CMakeFiles/cmTC_39112.dir/CMakeFortranCompilerABI.F90.o -o cmTC_39112 
+mpifort for MPICH version 4.0
+Driving: gfortran -O2 -ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=. -flto=auto -flto=auto -fstack-protector-strong -fallow-invalid-boz -Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -flto=auto -Wl,-z,relro -L/usr/lib/x86_64-linux-gnu -lmpi -v -O3 -funroll-loops -funsafe-math-optimizations -fallow-argument-mismatch CMakeFiles/cmTC_39112.dir/CMakeFortranCompilerABI.F90.o -o cmTC_39112 -I/usr/include/x86_64-linux-gnu/mpich -I/usr/include/x86_64-linux-gnu/mpich -L/usr/lib/x86_64-linux-gnu -lmpichfort -lmpich -l gfortran -l m -shared-libgcc
+Using built-in specs.
+COLLECT_GCC=gfortran
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04.1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) 
+Reading specs from /usr/lib/gcc/x86_64-linux-gnu/11/libgfortran.spec
+rename spec lib to liborig
+COLLECT_GCC_OPTIONS='-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-flto=auto' '-flto=auto' '-fstack-protector-strong' '-fallow-invalid-boz' '-flto=auto' '-ffat-lto-objects' '-flto=auto' '-L/usr/lib/x86_64-linux-gnu' '-v' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-fallow-argument-mismatch' '-o' 'cmTC_39112' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_39112-'
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-flto=auto' '-flto=auto' '-fstack-protector-strong' '-fallow-invalid-boz' '-flto=auto' '-ffat-lto-objects' '-flto=auto' '-L/usr/lib/x86_64-linux-gnu' '-v' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-fallow-argument-mismatch' '-o' 'cmTC_39112' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_39112.'
+ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccjNZN84.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lquadmath -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -flto=auto -flto=auto -flto=auto -flto=auto --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_39112 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -Bsymbolic-functions -z relro -lmpi CMakeFiles/cmTC_39112.dir/CMakeFortranCompilerABI.F90.o -lmpichfort -lmpich -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtfastmath.o /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -fresolution=/tmp/ccjNZN84.res -flinker-output=pie CMakeFiles/cmTC_39112.dir/CMakeFortranCompilerABI.F90.o 
+/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -fresolution=/tmp/ccjNZN84.res -flinker-output=pie CMakeFiles/cmTC_39112.dir/CMakeFortranCompilerABI.F90.o 
+LTO parallelism level set to 4
+gfortran @/tmp/cceY66mD
+Using built-in specs.
+COLLECT_GCC=gfortran
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04.1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) 
+COLLECT_GCC_OPTIONS='-c' '-fno-openmp' '-fno-openacc' '-fPIC' '-fcf-protection=none' '-O2' '-O3' '-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-fstack-protector-strong' '-ffat-lto-objects' '-L/usr/lib/x86_64-linux-gnu' '-v' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64'   '-fltrans-output-list=/tmp/ccsyDWD7.ltrans.out' '-fwpa=4' '-fresolution=/tmp/ccjNZN84.res' '-flinker-output=pie'
+ /usr/lib/gcc/x86_64-linux-gnu/11/lto1 -quiet -dumpbase ./cmTC_39112.wpa -mtune=generic -march=x86-64 -O2 -O3 -O2 -O3 -version -fno-openmp -fno-openacc -fPIC -fcf-protection=none -ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=. -fstack-protector-strong -ffat-lto-objects -funroll-loops -funsafe-math-optimizations -fltrans-output-list=/tmp/ccsyDWD7.ltrans.out -fwpa=4 -fresolution=/tmp/ccjNZN84.res -flinker-output=pie @/tmp/ccdfA3Qx
+GNU GIMPLE (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+GNU GIMPLE (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/../lib/:/lib/../lib/x86_64-linux-gnu/:/lib/../lib/../lib/:/usr/lib/../lib/x86_64-linux-gnu/:/usr/lib/../lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-c' '-fno-openmp' '-fno-openacc' '-fPIC' '-fcf-protection=none' '-O2' '-O3' '-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-fstack-protector-strong' '-ffat-lto-objects' '-L/usr/lib/x86_64-linux-gnu' '-v' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64'   '-fltrans-output-list=/tmp/ccsyDWD7.ltrans.out' '-fwpa=4' '-fresolution=/tmp/ccjNZN84.res' '-flinker-output=pie' '-dumpdir' './cmTC_39112.wpa.'
+make -f /tmp/ccWm2KRo.mk -j4 all
+Using built-in specs.
+COLLECT_GCC=gfortran
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04.1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) 
+COLLECT_GCC_OPTIONS='-c' '-fno-openmp' '-fno-openacc' '-fPIC' '-fcf-protection=none' '-O2' '-O3' '-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-fstack-protector-strong' '-ffat-lto-objects' '-L/usr/lib/x86_64-linux-gnu' '-v' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64'   '-fltrans' '-o' '/tmp/ccsyDWD7.ltrans0.ltrans.o'
+ /usr/lib/gcc/x86_64-linux-gnu/11/lto1 -quiet -dumpbase ./cmTC_39112.ltrans0.ltrans -mtune=generic -march=x86-64 -O2 -O3 -O2 -O3 -version -fno-openmp -fno-openacc -fPIC -fcf-protection=none -ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=. -fstack-protector-strong -ffat-lto-objects -funroll-loops -funsafe-math-optimizations -fltrans /tmp/ccsyDWD7.ltrans0.o -o /tmp/cc6OQpaH.s
+GNU GIMPLE (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+GNU GIMPLE (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+COLLECT_GCC_OPTIONS='-c' '-fno-openmp' '-fno-openacc' '-fPIC' '-fcf-protection=none' '-O2' '-O3' '-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-fstack-protector-strong' '-ffat-lto-objects' '-L/usr/lib/x86_64-linux-gnu' '-v' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64'   '-fltrans' '-o' '/tmp/ccsyDWD7.ltrans0.ltrans.o'
+ as -v --64 -o /tmp/ccsyDWD7.ltrans0.ltrans.o /tmp/cc6OQpaH.s
+GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+MAKEFLAGS=w -j4 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/../lib/:/lib/../lib/x86_64-linux-gnu/:/lib/../lib/../lib/:/usr/lib/../lib/x86_64-linux-gnu/:/usr/lib/../lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-c' '-fno-openmp' '-fno-openacc' '-fPIC' '-fcf-protection=none' '-O2' '-O3' '-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-fstack-protector-strong' '-ffat-lto-objects' '-L/usr/lib/x86_64-linux-gnu' '-v' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64'   '-fltrans' '-o' '/tmp/ccsyDWD7.ltrans0.ltrans.o' '-dumpdir' './cmTC_39112.ltrans0.ltrans.'
+COLLECT_GCC_OPTIONS='-O2' '-ffile-prefix-map=/build/mpich-0xgrG5/mpich-4.0=.' '-flto=auto' '-flto=auto' '-fstack-protector-strong' '-fallow-invalid-boz' '-flto=auto' '-ffat-lto-objects' '-flto=auto' '-L/usr/lib/x86_64-linux-gnu' '-v' '-O3' '-funroll-loops' '-funsafe-math-optimizations' '-fallow-argument-mismatch' '-o' 'cmTC_39112' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-I' '/usr/include/x86_64-linux-gnu/mpich' '-L/usr/lib/x86_64-linux-gnu' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_39112.'
+gmake[1]: Leaving directory '/home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp'
+
+
+
+Parsed Fortran implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/include/x86_64-linux-gnu/mpich]
+    add: [/usr/lib/gcc/x86_64-linux-gnu/11/finclude]
+    add: [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+    add: [/usr/local/include]
+    add: [/usr/include/x86_64-linux-gnu]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/include/x86_64-linux-gnu/mpich] ==> [/usr/include/x86_64-linux-gnu/mpich]
+  collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/11/finclude] ==> [/usr/lib/gcc/x86_64-linux-gnu/11/finclude]
+  collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/11/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/include/x86_64-linux-gnu/mpich;/usr/lib/gcc/x86_64-linux-gnu/11/finclude;/usr/lib/gcc/x86_64-linux-gnu/11/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+
+
+Parsed Fortran implicit link information from above output:
+  link line regex: [^( *|.*[/\])(gcc|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/bin/gmake -f Makefile cmTC_39112/fast && /bin/gmake  -f CMakeFiles/cmTC_39112.dir/build.make CMakeFiles/cmTC_39112.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp']
+  ignore line: [Building Fortran object CMakeFiles/cmTC_39112.dir/CMakeFortranCompilerABI.F90.o]
+  ignore line: [/bin/mpifort   -O3 -funroll-loops -funsafe-math-optimizations -fallow-argument-mismatch    -v -c /usr/share/cmake-3.22/Modules/CMakeFortranCompilerABI.F90 -o CMakeFiles/cmTC_39112.dir/CMakeFortranCompilerABI.F90.o]
+  ignore line: [mpifort for MPICH version 4.0]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=gfortran]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04.1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-aYxV0E/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  link line: [gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) ]
+    arg [gcc] ==> ignore
+    arg [version] ==> ignore
+    arg [11.3.0] ==> ignore
+    arg [(Ubuntu] ==> ignore
+    arg [11.3.0-1ubuntu1~22.04.1)] ==> ignore
+  implicit libs: []
+  implicit objs: []
+  implicit dirs: []
+  implicit fwks: []
+
+
+Determining if the include file execinfo.h exists passed with the following output:
+Change Dir: /home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/bin/gmake -f Makefile cmTC_07e2e/fast && /bin/gmake  -f CMakeFiles/cmTC_07e2e.dir/build.make CMakeFiles/cmTC_07e2e.dir/build
+gmake[1]: Entering directory '/home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_07e2e.dir/CheckIncludeFile.c.o
+/bin/mpicc   -O3 -ffast-math -std=c99  -o CMakeFiles/cmTC_07e2e.dir/CheckIncludeFile.c.o -c /home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_07e2e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_07e2e.dir/link.txt --verbose=1
+/bin/mpicc  -O3 -ffast-math -std=c99  -L/usr/lib/x86_64-linux-gnu -lmpi  CMakeFiles/cmTC_07e2e.dir/CheckIncludeFile.c.o -o cmTC_07e2e 
+gmake[1]: Leaving directory '/home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function getline exists passed with the following output:
+Change Dir: /home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/bin/gmake -f Makefile cmTC_a7113/fast && /bin/gmake  -f CMakeFiles/cmTC_a7113.dir/build.make CMakeFiles/cmTC_a7113.dir/build
+gmake[1]: Entering directory '/home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a7113.dir/CheckFunctionExists.c.o
+/bin/mpicc   -O3 -ffast-math -std=c99 -DCHECK_FUNCTION_EXISTS=getline -o CMakeFiles/cmTC_a7113.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a7113
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a7113.dir/link.txt --verbose=1
+/bin/mpicc  -O3 -ffast-math -std=c99 -DCHECK_FUNCTION_EXISTS=getline -L/usr/lib/x86_64-linux-gnu -lmpi  CMakeFiles/cmTC_a7113.dir/CheckFunctionExists.c.o -o cmTC_a7113 
+gmake[1]: Leaving directory '/home/mx/prj/pexsi/build_gnu/CMakeFiles/CMakeTmp'
+
+
+

@@ -4069,7 +4069,7 @@ PPEXSIData::DFTDriver (
   // Main loop: inertia count + PEXSI
 
   // Maximum number of total iterations
-  const Int maxTotalInertiaIter = 10;
+  const Int maxTotalInertiaIter = 8;
   // Whether the given interval contains the chemical potential
   bool  isBadBound = false;  
   // Whether the Newton update is in the trusted range
@@ -4093,7 +4093,7 @@ PPEXSIData::DFTDriver (
       // independent groups to minimize the cost
       // However, the minimum number of shifts is 10 to accelerate
       // convergence.
-      Int numShift = std::max( gridPole_->numProcRow, 10 );
+      Int numShift = std::max( gridPole_->numProcRow, 8 );
       std::vector<Real>  shiftVec( numShift );
       std::vector<Real>  inertiaVec( numShift );   // Zero temperature
       std::vector<Real>  inertiaFTVec( numShift ); // Finite temperature
@@ -4443,8 +4443,9 @@ PPEXSIData::DFTDriver2 (
   Real timeTotalSta, timeTotalEnd;
   Real timeInertia = 0.0;
   Real timePEXSI   = 0.0;
-
-
+  Real timeInertloop, timeInertloopEnd;
+  Real timeInertiaStaA;
+  Real timeInertiaStaB;
   // Initial setup
   Real muMin = muMinInertia;
   Real muMax = muMaxInertia;
@@ -4456,7 +4457,7 @@ PPEXSIData::DFTDriver2 (
   // Real Beta = 1.0 / temperature;
   Real sigma = 3* temperature; // CHECK CHECK
   Real numElecTol = 1.0e-5;
-
+  Int inertialFlag=0;
   // add the points parallelization.
   if(gridPole_->mpisize % nPoints){
     ErrorHandling("nPoints can not divided by MPI used in PEXSI.");
@@ -4482,7 +4483,7 @@ PPEXSIData::DFTDriver2 (
 
 
   GetTime( timeTotalSta );
-
+  GetTime( timeInertiaStaA );
   std::string colPerm;
   switch (solver){
     case 0:
@@ -4609,8 +4610,8 @@ PPEXSIData::DFTDriver2 (
       PrintBlock( statusOFS, "Inertia counting phase" );
     }
     bool  isBadBound = false;  
-
-    while( numTotalInertiaIter < maxTotalInertiaIter ){
+    GetTime( timeInertiaStaA );
+    while( numTotalInertiaIter < maxTotalInertiaIter && inertialFlag == 0 ){
 
       GetTime( timeInertiaSta );
 
@@ -4619,6 +4620,7 @@ PPEXSIData::DFTDriver2 (
       // However, the minimum number of shifts is numMax-muMin/muInertiaTolerance
       // to make sure muInertiaTolerance works.
       Int numShift = std::max( gridPole_->numProcRow, 10 );
+      //Int numShift = 3;
       numShift = std::min( numShift, (Int) std::ceil( (muMax-muMin)/ muInertiaTolerance) );
 
       std::vector<Real>  shiftVec( numShift );
@@ -4654,7 +4656,18 @@ PPEXSIData::DFTDriver2 (
       }
 
       Int Idx = (Int) std::ceil( sigma / hsShift ) ;
+      
+      std::vector<Real> mucandidate;
+      Int inertialelec ;
+      for(Int l = 0; l < numShift; l++)
+      {
+       if(inertiaVec[l] == numElectronExact){
+           mucandidate.push_back(shiftVec[l]);
+           inertialelec = inertiaVec[l];
+       }
 
+      }
+      
       for(Int l = Idx; l < numShift; l++)
       {
         NeLower[l]     = 0.5 * ( inertiaVec[l-Idx] + inertiaVec[l] );
@@ -4699,7 +4712,43 @@ PPEXSIData::DFTDriver2 (
         statusOFS << "idxMin = " << idxMin << ", inertiaVec = " << inertiaVec[idxMin] << std::endl;
         statusOFS << "idxMax = " << idxMax << ", inertiaVec = " << inertiaVec[idxMax] << std::endl;
       }
-
+       Real  range_old = std::abs(muMin-muMax);
+       if(mucandidate.size() > 0){
+         //Real inertialmuExact = std::accumulate(mucandidate.begin(),mucandidate.end(),0);
+          GetTime( timeInertloopEnd );
+          if( mucandidate[0] == mucandidate.back()){
+          Real  murange = std::max( sigma, hsShift );
+          Real  rangel = std::abs(muMin-muMax);
+          muMin = std::max(muMin, mucandidate[0]-sigma);
+          muMax = std::min(muMax, mucandidate[0]+sigma);
+         // muMin=mucandidate[0]-hsShift;
+         // muMax=mucandidate.back()+hsShift;
+          } else{
+          Real muMintemp = std::max(muMin, mucandidate.back()-sigma);
+          Real muMaxtemp = std::min(muMax, mucandidate[0]+sigma);
+          if(muMintemp-muMaxtemp > 0){
+              inertialFlag = 1;
+          }
+         // muMin=mucandidate[0];
+         // muMax=mucandidate.back();
+          }
+          Real range_new = std::abs(muMin-muMax);
+          Real update_range = range_new-range_old;
+          Real muestimate = (muMin + muMax) / 2 ;
+          Print( statusOFS, "The mu has been found with time  ", timeInertloopEnd-timeInertiaStaA, " [s]." );
+          Print( statusOFS, "The mu is estimated to be  ", muestimate, ". ");
+          Print( statusOFS, "The muMAX  ", muMax, ". ");
+          Print( statusOFS, "The muMin  ", muMin, ". ");
+          Print( statusOFS, "The computed electrons  ", inertialelec , ". ");
+          Print( statusOFS, "The shift equals ", hsShift, ". ");
+          if( muMax - muMin < 2.0* muInertiaTolerance || update_range > -0.01*muInertiaTolerance){
+          inertialFlag = 1;
+          }
+          muMinInertia = muMin;
+          muMaxInertia = muMax;
+          mucandidate.clear();
+      }
+      if(mucandidate.size() == 0){
       muMin = shiftVec[idxMin];
       muMax = shiftVec[idxMax];
 
@@ -4722,9 +4771,7 @@ PPEXSIData::DFTDriver2 (
 
         break;
       }
-
-      numTotalInertiaIter++;
-
+      
       if( verbosity >= 1 ){
         statusOFS << std::endl
           << "Inertia Counting " << std::endl
@@ -4732,9 +4779,13 @@ PPEXSIData::DFTDriver2 (
           << ")" << std::endl
           << "numShift           = " << numShift << std::endl;
       }
-
+      }
+      numTotalInertiaIter++;
     } // while (inertiaCount)
+    GetTime( timeInertiaStaB );
   } // do the Inertia Counting 
+
+  statusOFS << " OUTPUT SOMETHING. " << std::endl;
 
   // PEXSI phase.
   // No option for falling back to inertia counting
@@ -4848,7 +4899,7 @@ PPEXSIData::DFTDriver2 (
   if( verbosity == 1 ){
     statusOFS << std::endl
       << "(Point 0) Total number of inertia counts       = " << numTotalInertiaIter << std::endl
-      << "(Point 0) Total time for inertia count step    = " << timeInertia << " [s]" << std::endl 
+      << "(Point 0) Total time for inertia count step    = " << timeInertiaStaB-timeInertiaStaA << " [s]" << std::endl 
       << "(Point 0) Total time for PEXSI step            = " << timePEXSI   << " [s]" << std::endl
       << "(Point 0) Total time for the DFT driver        = " << timeTotalEnd - timeTotalSta   << " [s]" << std::endl
       << std::endl;
@@ -4856,9 +4907,9 @@ PPEXSIData::DFTDriver2 (
 
   if( 1 ){
     statusOFS << "Final result " << std::endl;
-    Print( statusOFS, "mu                          = ", muPEXSI );
-    Print( statusOFS, "muMin                       = ", muMinInertia );
-    Print( statusOFS, "muMax                       = ", muMaxInertia );
+    Print( statusOFS, "mu    (test)                       = ", muPEXSI );
+    Print( statusOFS, "muMin (test)                       = ", muMinInertia );
+    Print( statusOFS, "muMax (test)                       = ", muMaxInertia );
     Print( statusOFS, "Computed number of electron = ", numElectronPEXSI );
     Print( statusOFS, "Exact number of electron    = ", numElectronExact );
     Print( statusOFS, "Total energy (H*DM)         = ", totalEnergyH_ );
@@ -6420,7 +6471,7 @@ void PPEXSIData::InterpolateDMComplex(
             Print( statusOFS, "converged idx               = ", mu_idx);
             Print( statusOFS, "converged NeVec[mu_idx]     = ", NeVec[mu_idx]);
             Print( statusOFS, "numElectronTolerance        = ", numElectronPEXSITolerance);
-            Print( statusOFS, "Final mu                    = ", mu);
+            Print( statusOFS, "Final mu (chemical potential)                    = ", mu);
           }
           break;
         }
@@ -6438,7 +6489,7 @@ void PPEXSIData::InterpolateDMComplex(
           Print( statusOFS, "NeVec[min]                  = ", NeVec[idxMin] );
           Print( statusOFS, "idxMax                      = ", idxMax );
           Print( statusOFS, "NeVec[max]                  = ", NeVec[idxMax] );
-          Print( statusOFS, "Final mu                    = ", mu );
+          Print( statusOFS, "Final mu (chemical potential)                    = ", mu );
         }
   
         // linear combine density matrix.
@@ -6565,3 +6616,4 @@ void PPEXSIData::InterpolateDMComplex(
 
 
 } //  namespace PEXSI
+
